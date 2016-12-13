@@ -772,7 +772,7 @@ a:active {
 
 .nav-menu {
   padding: 1em;
-  background-color: #333;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .main-navigation.toggled ul {

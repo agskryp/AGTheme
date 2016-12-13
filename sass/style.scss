@@ -53,8 +53,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Variables
 --------------------------------------------------------------*/
 
-$primary-link-color: orangered;
-$primary-text-color: #333;
+$primary-link-color: #b27401;
+$primary-text-color: #272727;
 
 /*--------------------------------------------------------------
 # Normalize
@@ -280,7 +280,7 @@ button,
 input,
 select,
 textarea {
-        color: #333;
+        color: $primary-text-color;
         font-family: "Muli", sans-serif;
         font-size: 16px;
         font-size: 1rem;
@@ -361,7 +361,7 @@ pre {
 	max-width: 100%;
 	overflow: auto;
 	padding: 1em;
-        border-left: 4px solid orangered;
+        border-left: 4px solid $primary-link-color;
 }
 
 code,
@@ -371,6 +371,16 @@ var {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 15px;
 	font-size: 0.9375rem;
+}
+
+code {
+    font-family: "Courier 10 Pitch", Courier, monospace;
+    border: 1px solid #888;
+    max-width: 100%;
+    padding: 1.5em;
+    display: block;
+    line-height: 0.8;
+    white-space: pre;
 }
 
 abbr,
@@ -477,7 +487,7 @@ table {
 th,
 td {
     padding: 2px 8px;
-    border: 1px solid #333;
+    border: 1px solid $primary-text-color;
 }
 
 /*--------------------------------------------------------------
@@ -492,7 +502,7 @@ input[type="submit"] {
         font-family: "Muli", sans-serif;
         font-size: 85%;
         border: 1px solid #bbb;
-        color: orangered;
+        color: $primary-link-color;
         line-height: 0.8em;
         text-decoration: none;
         background: #bbb;
@@ -579,13 +589,13 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-	color: orangered;
+	color: $primary-link-color;
         text-decoration: none;
         transition: color ease-in-out 200ms;
 }
 
 a:visited {
-	color: orangered;
+	color: $primary-link-color;
 }
 
 a:hover,
@@ -632,7 +642,7 @@ a:active {
 
 .main-navigation a:hover,
 .main-navigation a:focus {
-    color: #333;
+    color: $primary-text-color;
 }
 
 .main-navigation ul ul {
@@ -739,7 +749,7 @@ a:active {
     left: 30%;
     font-size: 1em;
     text-transform: uppercase;
-    background-color: #333;
+    background-color: $primary-text-color;
     color: #cdcdcd;
     border: 2px solid #000;
     transition: bottom ease-out 400ms;
@@ -750,7 +760,7 @@ a:active {
 .menu-toggle:active {
     outline: none;
     background-color: #cdcdcd;
-    color: #333;
+    color: $primary-text-color;
 }
 
 .menu-toggle.hide {
@@ -772,7 +782,7 @@ a:active {
 
 .nav-menu {
     padding: 1em;
-    background-color: #333;
+    background-color: rgba(0,0,0,0.3);
 }
 
 .main-navigation.toggled ul {
@@ -802,14 +812,13 @@ a:active {
         .main-navigation,
         .main-navigation.toggled {
             position: relative;
-            min-height: 3.5em;
             margin: 0 auto;
             padding: 0;
             background: none;
         }
         
         .nav-menu {
-            padding: .3em 0 0 0;
+            padding: 0;
         }
         
         .main-navigation ul,
@@ -857,7 +866,7 @@ a:active {
         .main-navigation li li a:hover,
         .main-navigation li li a:focus {
             background: #cdcdcd;
-            color: #333;
+            color: $primary-text-color;
             text-decoration: none;
         }
         
@@ -867,7 +876,7 @@ a:active {
             display: block;
             z-index: 10;
             margin-left: 0;
-            background: #333;
+            background: $primary-text-color;
         }
         
         .main-navigation ul ul ul.toggled-on {
@@ -1136,7 +1145,7 @@ a:active {
 # Header
 --------------------------------------------------------------*/
 .site-header {
-    background-color: #000;
+    background-color: $primary-text-color;
     background-size: cover;
 }
 
@@ -1341,7 +1350,7 @@ a:active {
 }
 
 .calendar_wrap thead {
-    background: #333;
+    background: $primary-text-color;
     color: #ccc;
 }
 
@@ -1476,13 +1485,13 @@ a:active {
     text-align: center;
     background: #eee;
     line-height: 1em;
-    color: orangered;
+    color: $primary-link-color;
     padding: .3em;
     font-family: 'Muli', sans-serif;
     font-weight: 900;
     font-variant: small-caps;
     margin: 0.7em 0 0;
-    border-bottom: 2px solid orangered;
+    border-bottom: 2px solid $primary-link-color;
 }
 
 /*--------------------------------------------------------------
@@ -1519,11 +1528,10 @@ a:active {
     font-size: 3.3em;
     line-height: .9em;
     letter-spacing: -2px;
-    color: orangered;
-    border-left: 4px solid orangered;
+    color: $primary-link-color;
+    border-left: 4px solid $primary-link-color;
     padding: 0 4rem 0 1rem;
     margin-bottom: .4rem;
-    -ms-word-wrap: break-word;
     word-wrap: break-word;
 }
 
@@ -1710,7 +1718,7 @@ a:active {
     padding: .5em 1.4em;
     font-family: "Muli", sans-serif;
     font-size: 85%;
-    color: orangered;
+    color: $primary-link-color;
     line-height: 1.3em;
     text-decoration: none;
     background: #bbb;
@@ -1833,7 +1841,7 @@ a:active {
     padding: .5em 1.4em;
     font-family: "Muli", sans-serif;
     font-size: 85%;
-    color: orangered;
+    color: $primary-link-color;
     line-height: 1.3em;
     text-decoration: none;
     background: #bbb;
@@ -1854,7 +1862,7 @@ a:active {
 }
 
 .comment-form .required {
-    color: orangered;
+    color: $primary-link-color;
 }
 
 /*--------------------------------------------------------------
@@ -1917,7 +1925,7 @@ object {
     position: absolute;
     margin-left: -1.1em;
     font-family: "FontAwesome";
-    color: #333;
+    color: $primary-text-color;
     content: "\f148";
     transform: rotate(90deg);
 }
@@ -2016,7 +2024,7 @@ img.aligncenter {
 
 .site-footer {
     padding: 6em 1em;
-    background: #333;
+    background: $primary-text-color;
     color: #eee;
     text-align: center;
 }
