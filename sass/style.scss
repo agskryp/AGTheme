@@ -53,8 +53,12 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Variables
 --------------------------------------------------------------*/
 
-$primary-link-color: #b27401;
-$primary-text-color: #272727;
+$primary-link-color:   #cc880a; // Orangey
+$secondary-link-color: #625dd1; // Bluish
+$primary-text-color:   #272727; // Very Dark Grey
+$primary-bkgd-color:   #f2f2f2; // Very Light Grey
+$navigate-bkgd-color:  #d4d4d4; // Light Grey
+$body-bkgd-color:      #7da091; // Greenish
 
 /*--------------------------------------------------------------
 # Normalize
@@ -353,7 +357,7 @@ address {
 }
 
 pre {
-	background: #e6e6e6;
+	background: $navigate-bkgd-color;
 	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 0.9375rem;
 	line-height: 1.5;
@@ -379,8 +383,8 @@ code {
     max-width: 100%;
     padding: 1.5em;
     display: block;
-    line-height: 0.8;
-    white-space: pre;
+    line-height: 1.1;
+    white-space: pre-wrap;
 }
 
 abbr,
@@ -413,7 +417,7 @@ html {
 }
 
 body {
-	background: #09FF90; /* Fallback for when there is no custom background color defined. */
+	background: $body-bkgd-color; /* Fallback for when there is no custom background color defined. */
 }
 
 blockquote:before,
@@ -433,7 +437,7 @@ blockquote::before {
     content: "\f10d";
     position: absolute;
     left: -1.5em;
-    color: #ccc;
+    color: #aaa;
 }
 
 hr {
@@ -500,12 +504,11 @@ input[type="submit"] {
        display: inline-block;
         padding: .5em 1.4em;
         font-family: "Muli", sans-serif;
-        font-size: 85%;
-        border: 1px solid #bbb;
+        border: 1px solid $navigate-bkgd-color;
         color: $primary-link-color;
         line-height: 0.8em;
         text-decoration: none;
-        background: #bbb;
+        background: $navigate-bkgd-color;
         transition: none;
 }
 
@@ -513,8 +516,8 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-        color: green;
-        background: #ddd;
+        color: $secondary-link-color;
+        background: $navigate-bkgd-color;
 }
 
 button:focus,
@@ -525,7 +528,7 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-        color: green;
+        color: $secondary-link-color;
         background: #ddd;
 }
 
@@ -579,7 +582,12 @@ textarea {
 }
 
 .search-field {
-    width: 60%;
+    width: 50%;
+}
+
+.site-main .search-form {
+    margin: 0 auto 1rem;
+    text-align: center;
 }
 
 /*--------------------------------------------------------------
@@ -601,7 +609,7 @@ a:visited {
 a:hover,
 a:focus,
 a:active {
-	color: #119000;
+	color: $secondary-link-color;
 }
 
 a:focus {
@@ -700,8 +708,6 @@ a:active {
         top: 12px;
         right: 6px;
         background-color: rgba(0,0,0,0);
-	-webkit-box-sizing: content-box;
-	-moz-box-sizing: content-box;
 	box-sizing: content-box;
 	content: "";
 	padding: 0;
@@ -745,13 +751,15 @@ a:active {
 .menu-toggle {
     position: fixed;
     z-index: 100;
-    bottom: 1em;
-    left: 30%;
+    bottom: 0;
+    left: 20%;
     font-size: 1em;
     text-transform: uppercase;
-    background-color: $primary-text-color;
+    background-color: $body-bkgd-color;
     color: #cdcdcd;
-    border: 2px solid #000;
+    border: 1px solid #000;
+    border-radius: 10%/40% 40% 0 0;
+    border-bottom: none;
     transition: bottom ease-out 400ms;
 }
 
@@ -775,14 +783,24 @@ a:active {
 .main-navigation.toggled {
     position: fixed;
     bottom: 0;
-    padding: 1em;
-    padding-bottom: 4em;
+    border-bottom: 4em solid #696969;
     z-index: 1;
 }
 
 .nav-menu {
-    padding: 1em;
-    background-color: rgba(0,0,0,0.3);
+    padding: 0;
+    background-color: rgba(69,69,69,1);
+}
+
+@media screen and (max-width: 30em) {
+    .nav-menu {
+        background-color: rgba(0,0,0,0.3);
+        padding: 1em;
+    }
+    
+    .main-navigation.toggled {
+        border-bottom: none;
+    }
 }
 
 .main-navigation.toggled ul {
@@ -902,7 +920,7 @@ a:active {
 .site-main .comment-navigation,
 .site-main .posts-navigation,
 .site-main .post-navigation {
-	margin: 0 0 1.5em;
+	margin: 0 0 1rem;
 	overflow: hidden;
 }
 
@@ -947,21 +965,21 @@ a:active {
     width: 100%;
     text-decoration: none;
     padding: 1rem 1.6rem;
-    background: #ddd;
+    background: $navigate-bkgd-color;
     transition: none;
 }
 
 .comment-navigation a {
-    border: 1px solid #ddd;
+    border: 1px solid $navigate-bkgd-color;
 }
 
 .paging-navigation {
     text-align: center;
-    background: #ddd;
+    background: $navigate-bkgd-color;
 }
 
 .paging-navigation .current {
-    background: #eee;
+    background: $primary-bkgd-color;
 }
 
 .paging-navigation ul {
@@ -979,12 +997,12 @@ a:active {
 .post-navigation a:focus,
 .paging-navigation a:hover,
 .paging-navigation a:focus {
-    background: #eee;
+    background: $primary-bkgd-color;
 }
 
 .comment-navigation a:focus,
 .comment-navigation a:hover {
-    background: #ccc;    
+    background: $primary-bkgd-color;    
 }
 
 .post-navigation .post-title {
@@ -1034,21 +1052,24 @@ a:active {
     }
     
     .post-navigation .nav-previous,
-    .comment-navigation .nav-previous {
+    .comment-navigation .nav-previous,
+    .post-navigation .nav-next,
+    .comment-navigation .nav-next {
         display: flex;
         align-items: stretch;
+        width: 49%;
+    }
+    
+    .post-navigation .nav-previous,
+    .comment-navigation .nav-previous {
         float: left;
-        width: 48%;
         padding-bottom: 0;
     }
         
     .post-navigation .nav-next,
     .comment-navigation .nav-next {
-        display: flex;
-        align-items: stretch;
         float: right;
         text-align: right;
-        width: 48%;
     }
 }
 
@@ -1225,28 +1246,27 @@ a:active {
 --------------------------------------------------------------*/
 .widget-area {
     position: relative;
-    padding: 1.8em 1.4em 0;
-    background-color: #09FF90;
+    background-color: $body-bkgd-color;
 }
 
 .widget {
-	margin: 0 1.8em 1.5em;
+	margin: 1rem 0 0;
         padding: 1.8em;
-        background: #eee;
+        background: $primary-bkgd-color;
 }
 
-@media screen and (min-width: 45em) {
+@media screen and (min-width: 43em) {
     .widget-area {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 1.8em;
+        padding: 1rem 1rem 0;
     }
     
     .widget {
         float: left;
         width: 300px;
-        margin: 0 .9em 1em;
+        margin: 0 .5rem 1rem;
     }
 }
 
@@ -1288,7 +1308,7 @@ a:active {
     box-sizing: border-box;
     width: 100%;
     padding: 0.5em 1em;
-    border: 1px solid #ccc;
+    border: 1px solid $primary-bkgd-color;
     border-radius: 0;
 }
 
@@ -1351,7 +1371,7 @@ a:active {
 
 .calendar_wrap thead {
     background: $primary-text-color;
-    color: #ccc;
+    color: $primary-bkgd-color;
 }
 
 .calendar_wrap thead th {
@@ -1363,7 +1383,7 @@ a:active {
     font-size: .9em;
     text-align: center;
     background: #d6d6d6;
-    border: 3px solid #eee;
+    border: 3px solid $primary-bkgd-color;
 }
 
 .calendar_wrap .pad {
@@ -1452,15 +1472,8 @@ a:active {
 }
 
 .site-main {
-    margin: 1.4em;
     font-size: .8em;
     line-height: 1.6em;
-}
-
-@media screen and (min-width: 30em) {
-    .site-main {
-        margin: 1.8em;
-    }
 }
 
 @media screen and (min-width: 40em) {
@@ -1469,10 +1482,10 @@ a:active {
     }
 }
 
-@media screen and (min-width: 57em) {
+@media screen and (min-width: 45em) {
     .site-main {
         max-width: 53em;
-        margin: 1.8em auto;
+        margin: 1rem auto 0;
     }
     
     .sidebar-right .site-main,
@@ -1483,14 +1496,15 @@ a:active {
 
 .page-title {
     text-align: center;
-    background: #eee;
+    background: $primary-bkgd-color;
     line-height: 1em;
     color: $primary-link-color;
     padding: .3em;
     font-family: 'Muli', sans-serif;
     font-weight: 900;
+    font-size: 3em;
     font-variant: small-caps;
-    margin: 0.7em 0 0;
+    margin: 0;
     border-bottom: 2px solid $primary-link-color;
 }
 
@@ -1514,7 +1528,7 @@ a:active {
 
 .hentry {
 	margin: 0 0 1.5em;
-         background: #eee;
+         background: $primary-bkgd-color;
 }
 
 .entry-header {
@@ -1540,7 +1554,7 @@ a:active {
     font-size: 85%;
     font-style: italic;
     line-height: 1.1em;
-    padding: 0 1.6rem;
+    padding: 0.2rem 1.6rem 0;
 }
 
 .entry-content {
@@ -1565,7 +1579,7 @@ a:active {
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 0;
 }
 
 .page-links {
@@ -1601,11 +1615,15 @@ a:active {
     text-transform: uppercase;
 }
 
+.pingback .edit-link {
+    padding-bottom: 1em;
+}
+
 .archive-description,
 .error-message {
     text-align: center;
-    background: #eee;
-    margin: 0 0 1em;
+    background: $primary-bkgd-color;
+    margin: 0 0 1rem;
     font-weight: 900;
     font-style: italic;
 }
@@ -1631,9 +1649,9 @@ a:active {
 --------------------------------------------------------------*/
 
 .comments-area {
-    margin: 2em -1.4em;
+    margin: 1rem 0;
     padding: 1em 1.4em;
-    background: #ccc;
+    background: $primary-bkgd-color;
 }
 
 .comments-title {
@@ -1721,17 +1739,18 @@ a:active {
     color: $primary-link-color;
     line-height: 1.3em;
     text-decoration: none;
-    background: #bbb;
-    border: 1px solid #bbb;
+    background: $navigate-bkgd-color;
+    border: 1px solid $navigate-bkgd-color;
     transition: none;
 }
 
 .reply a:hover,
 .reply a:focus {
-    background: #ccc;
-    color: green;
+    background: $primary-bkgd-color;
+    color: $secondary-link-color;
 }
 
+/* Verified Author Icon */
 .bypostauthor .fn::after {
     font-family: "FontAwesome";
     content: "\f058";
@@ -1746,7 +1765,7 @@ a:active {
 @media screen and (min-width: 30em) {
     
     .comments-area {
-        margin: 2em -1.8em;
+        margin: 1rem 0;
     }
     
     .children {
@@ -1766,13 +1785,6 @@ a:active {
     .comment-content {
         margin-left: 80px;
     }
-    
-}
-
-@media screen and (min-width: 50em) {
-    .comments-area {
-        margin: 2em 0;
-}
     
 }
 
@@ -1844,15 +1856,15 @@ a:active {
     color: $primary-link-color;
     line-height: 1.3em;
     text-decoration: none;
-    background: #bbb;
-    border: 1px solid #bbb;
+    background: $navigate-bkgd-color;
+    border: 1px solid $navigate-bkgd-color;
     transition: none;
 }
 
 .comment-form .form-submit input:focus,
 .comment-form .form-submit input:hover {
-    background: #ccc;
-    color: green;
+    background: $primary-bkgd-color;
+    color: $secondary-link-color;
 }
 
 .comment-form label {
@@ -2025,6 +2037,6 @@ img.aligncenter {
 .site-footer {
     padding: 6em 1em;
     background: $primary-text-color;
-    color: #eee;
+    color: $primary-bkgd-color;
     text-align: center;
 }

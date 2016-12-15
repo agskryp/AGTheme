@@ -347,7 +347,7 @@ address {
 }
 
 pre {
-  background: #e6e6e6;
+  background: #d4d4d4;
   font-family: "Courier 10 Pitch", Courier, monospace;
   font-size: 0.9375rem;
   line-height: 1.5;
@@ -355,7 +355,7 @@ pre {
   max-width: 100%;
   overflow: auto;
   padding: 1em;
-  border-left: 4px solid #b27401;
+  border-left: 4px solid #cc880a;
 }
 
 code,
@@ -373,8 +373,8 @@ code {
   max-width: 100%;
   padding: 1.5em;
   display: block;
-  line-height: 0.8;
-  white-space: pre;
+  line-height: 1.1;
+  white-space: pre-wrap;
 }
 
 abbr,
@@ -408,7 +408,7 @@ html {
 }
 
 body {
-  background: #09FF90;
+  background: #7da091;
   /* Fallback for when there is no custom background color defined. */
 }
 
@@ -429,7 +429,7 @@ blockquote::before {
   content: "\f10d";
   position: absolute;
   left: -1.5em;
-  color: #ccc;
+  color: #aaa;
 }
 
 hr {
@@ -499,12 +499,11 @@ input[type="submit"] {
   display: inline-block;
   padding: .5em 1.4em;
   font-family: "Muli", sans-serif;
-  font-size: 85%;
-  border: 1px solid #bbb;
-  color: #b27401;
+  border: 1px solid #d4d4d4;
+  color: #cc880a;
   line-height: 0.8em;
   text-decoration: none;
-  background: #bbb;
+  background: #d4d4d4;
   transition: none;
 }
 
@@ -512,8 +511,8 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-  color: green;
-  background: #ddd;
+  color: #625dd1;
+  background: #d4d4d4;
 }
 
 button:focus,
@@ -524,7 +523,7 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-  color: green;
+  color: #625dd1;
   background: #ddd;
 }
 
@@ -578,7 +577,12 @@ textarea {
 }
 
 .search-field {
-  width: 60%;
+  width: 50%;
+}
+
+.site-main .search-form {
+  margin: 0 auto 1rem;
+  text-align: center;
 }
 
 /*--------------------------------------------------------------
@@ -588,19 +592,19 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: #b27401;
+  color: #cc880a;
   text-decoration: none;
   transition: color ease-in-out 200ms;
 }
 
 a:visited {
-  color: #b27401;
+  color: #cc880a;
 }
 
 a:hover,
 a:focus,
 a:active {
-  color: #119000;
+  color: #625dd1;
 }
 
 a:focus {
@@ -743,13 +747,15 @@ a:active {
 .menu-toggle {
   position: fixed;
   z-index: 100;
-  bottom: 1em;
-  left: 30%;
+  bottom: 0;
+  left: 20%;
   font-size: 1em;
   text-transform: uppercase;
-  background-color: #272727;
+  background-color: #7da091;
   color: #cdcdcd;
-  border: 2px solid #000;
+  border: 1px solid #000;
+  border-radius: 10%/40% 40% 0 0;
+  border-bottom: none;
   transition: bottom ease-out 400ms;
 }
 
@@ -773,16 +779,25 @@ a:active {
 .main-navigation.toggled {
   position: fixed;
   bottom: 0;
-  padding: 1em;
-  padding-bottom: 4em;
+  border-bottom: 4em solid #696969;
   z-index: 1;
 }
 
 .nav-menu {
-  padding: 1em;
-  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0;
+  background-color: #454545;
 }
 
+@media screen and (max-width: 30em) {
+  .nav-menu {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 1em;
+  }
+
+  .main-navigation.toggled {
+    border-bottom: none;
+  }
+}
 .main-navigation.toggled ul {
   max-height: calc(100vh - 8em);
   overflow-y: auto;
@@ -900,7 +915,7 @@ a:active {
 .site-main .comment-navigation,
 .site-main .posts-navigation,
 .site-main .post-navigation {
-  margin: 0 0 1.5em;
+  margin: 0 0 1rem;
   overflow: hidden;
 }
 
@@ -944,21 +959,21 @@ a:active {
   width: 100%;
   text-decoration: none;
   padding: 1rem 1.6rem;
-  background: #ddd;
+  background: #d4d4d4;
   transition: none;
 }
 
 .comment-navigation a {
-  border: 1px solid #ddd;
+  border: 1px solid #d4d4d4;
 }
 
 .paging-navigation {
   text-align: center;
-  background: #ddd;
+  background: #d4d4d4;
 }
 
 .paging-navigation .current {
-  background: #eee;
+  background: #f2f2f2;
 }
 
 .paging-navigation ul {
@@ -976,12 +991,12 @@ a:active {
 .post-navigation a:focus,
 .paging-navigation a:hover,
 .paging-navigation a:focus {
-  background: #eee;
+  background: #f2f2f2;
 }
 
 .comment-navigation a:focus,
 .comment-navigation a:hover {
-  background: #ccc;
+  background: #f2f2f2;
 }
 
 .post-navigation .post-title {
@@ -1034,25 +1049,26 @@ a:active {
   }
 
   .post-navigation .nav-previous,
-  .comment-navigation .nav-previous {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: stretch;
-        align-items: stretch;
-    float: left;
-    width: 48%;
-    padding-bottom: 0;
-  }
-
+  .comment-navigation .nav-previous,
   .post-navigation .nav-next,
   .comment-navigation .nav-next {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: stretch;
         align-items: stretch;
+    width: 49%;
+  }
+
+  .post-navigation .nav-previous,
+  .comment-navigation .nav-previous {
+    float: left;
+    padding-bottom: 0;
+  }
+
+  .post-navigation .nav-next,
+  .comment-navigation .nav-next {
     float: right;
     text-align: right;
-    width: 48%;
   }
 }
 /*--------------------------------------------------------------
@@ -1229,17 +1245,16 @@ a:active {
 --------------------------------------------------------------*/
 .widget-area {
   position: relative;
-  padding: 1.8em 1.4em 0;
-  background-color: #09FF90;
+  background-color: #7da091;
 }
 
 .widget {
-  margin: 0 1.8em 1.5em;
+  margin: 1rem 0 0;
   padding: 1.8em;
-  background: #eee;
+  background: #f2f2f2;
 }
 
-@media screen and (min-width: 45em) {
+@media screen and (min-width: 43em) {
   .widget-area {
     display: -ms-flexbox;
     display: flex;
@@ -1247,13 +1262,13 @@ a:active {
         flex-wrap: wrap;
     -ms-flex-pack: center;
         justify-content: center;
-    padding: 1.8em;
+    padding: 1rem 1rem 0;
   }
 
   .widget {
     float: left;
     width: 300px;
-    margin: 0 .9em 1em;
+    margin: 0 .5rem 1rem;
   }
 }
 .widget-title {
@@ -1294,7 +1309,7 @@ a:active {
   box-sizing: border-box;
   width: 100%;
   padding: 0.5em 1em;
-  border: 1px solid #ccc;
+  border: 1px solid #f2f2f2;
   border-radius: 0;
 }
 
@@ -1357,7 +1372,7 @@ a:active {
 
 .calendar_wrap thead {
   background: #272727;
-  color: #ccc;
+  color: #f2f2f2;
 }
 
 .calendar_wrap thead th {
@@ -1369,7 +1384,7 @@ a:active {
   font-size: .9em;
   text-align: center;
   background: #d6d6d6;
-  border: 3px solid #eee;
+  border: 3px solid #f2f2f2;
 }
 
 .calendar_wrap .pad {
@@ -1452,25 +1467,19 @@ a:active {
   }
 }
 .site-main {
-  margin: 1.4em;
   font-size: .8em;
   line-height: 1.6em;
 }
 
-@media screen and (min-width: 30em) {
-  .site-main {
-    margin: 1.8em;
-  }
-}
 @media screen and (min-width: 40em) {
   .site-main {
     font-size: 1em;
   }
 }
-@media screen and (min-width: 57em) {
+@media screen and (min-width: 45em) {
   .site-main {
     max-width: 53em;
-    margin: 1.8em auto;
+    margin: 1rem auto 0;
   }
 
   .sidebar-right .site-main,
@@ -1480,15 +1489,16 @@ a:active {
 }
 .page-title {
   text-align: center;
-  background: #eee;
+  background: #f2f2f2;
   line-height: 1em;
-  color: #b27401;
+  color: #cc880a;
   padding: .3em;
   font-family: 'Muli', sans-serif;
   font-weight: 900;
+  font-size: 3em;
   font-variant: small-caps;
-  margin: 0.7em 0 0;
-  border-bottom: 2px solid #b27401;
+  margin: 0;
+  border-bottom: 2px solid #cc880a;
 }
 
 /*--------------------------------------------------------------
@@ -1511,7 +1521,7 @@ a:active {
 
 .hentry {
   margin: 0 0 1.5em;
-  background: #eee;
+  background: #f2f2f2;
 }
 
 .entry-header {
@@ -1525,8 +1535,8 @@ a:active {
   font-size: 3.3em;
   line-height: .9em;
   letter-spacing: -2px;
-  color: #b27401;
-  border-left: 4px solid #b27401;
+  color: #cc880a;
+  border-left: 4px solid #cc880a;
   padding: 0 4rem 0 1rem;
   margin-bottom: .4rem;
   word-wrap: break-word;
@@ -1537,7 +1547,7 @@ a:active {
   font-size: 85%;
   font-style: italic;
   line-height: 1.1em;
-  padding: 0 1.6rem;
+  padding: 0.2rem 1.6rem 0;
 }
 
 .entry-content {
@@ -1562,7 +1572,7 @@ a:active {
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0;
+  margin: 0;
 }
 
 .page-links {
@@ -1600,11 +1610,15 @@ a:active {
   text-transform: uppercase;
 }
 
+.pingback .edit-link {
+  padding-bottom: 1em;
+}
+
 .archive-description,
 .error-message {
   text-align: center;
-  background: #eee;
-  margin: 0 0 1em;
+  background: #f2f2f2;
+  margin: 0 0 1rem;
   font-weight: 900;
   font-style: italic;
 }
@@ -1629,9 +1643,9 @@ a:active {
 ## Comments
 --------------------------------------------------------------*/
 .comments-area {
-  margin: 2em -1.4em;
+  margin: 1rem 0;
   padding: 1em 1.4em;
-  background: #ccc;
+  background: #f2f2f2;
 }
 
 .comments-title {
@@ -1716,20 +1730,21 @@ a:active {
   padding: .5em 1.4em;
   font-family: "Muli", sans-serif;
   font-size: 85%;
-  color: #b27401;
+  color: #cc880a;
   line-height: 1.3em;
   text-decoration: none;
-  background: #bbb;
-  border: 1px solid #bbb;
+  background: #d4d4d4;
+  border: 1px solid #d4d4d4;
   transition: none;
 }
 
 .reply a:hover,
 .reply a:focus {
-  background: #ccc;
-  color: green;
+  background: #f2f2f2;
+  color: #625dd1;
 }
 
+/* Verified Author Icon */
 .bypostauthor .fn::after {
   font-family: "FontAwesome";
   content: "\f058";
@@ -1742,7 +1757,7 @@ a:active {
 
 @media screen and (min-width: 30em) {
   .comments-area {
-    margin: 2em -1.8em;
+    margin: 1rem 0;
   }
 
   .children {
@@ -1761,11 +1776,6 @@ a:active {
 
   .comment-content {
     margin-left: 80px;
-  }
-}
-@media screen and (min-width: 50em) {
-  .comments-area {
-    margin: 2em 0;
   }
 }
 .bypostauthor {
@@ -1832,18 +1842,18 @@ a:active {
   padding: .5em 1.4em;
   font-family: "Muli", sans-serif;
   font-size: 85%;
-  color: #b27401;
+  color: #cc880a;
   line-height: 1.3em;
   text-decoration: none;
-  background: #bbb;
-  border: 1px solid #bbb;
+  background: #d4d4d4;
+  border: 1px solid #d4d4d4;
   transition: none;
 }
 
 .comment-form .form-submit input:focus,
 .comment-form .form-submit input:hover {
-  background: #ccc;
-  color: green;
+  background: #f2f2f2;
+  color: #625dd1;
 }
 
 .comment-form label {
@@ -1853,7 +1863,7 @@ a:active {
 }
 
 .comment-form .required {
-  color: #b27401;
+  color: #cc880a;
 }
 
 /*--------------------------------------------------------------
@@ -2015,6 +2025,6 @@ img.aligncenter {
 .site-footer {
   padding: 6em 1em;
   background: #272727;
-  color: #eee;
+  color: #f2f2f2;
   text-align: center;
 }
