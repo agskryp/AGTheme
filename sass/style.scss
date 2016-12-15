@@ -47,6 +47,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
         ## Images
 	## Galleries
 # Footer
+# Custom CSS Classes
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -529,7 +530,7 @@ input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
         color: $secondary-link-color;
-        background: #ddd;
+        background: $primary-bkgd-color;
 }
 
 input[type="text"],
@@ -548,7 +549,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	color: #666;
+	color: $navigate-bkgd-color;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	padding: 3px;
@@ -574,7 +575,7 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-	color: #111;
+	color: $primary-text-color;
 }
 
 textarea {
@@ -1295,7 +1296,8 @@ a:active {
 }
 .widget_archive li,
 .widget_categories > ul > li,
-.widget_recent_comments li {
+.widget_recent_comments li,
+.widget_recent_entries li {
     padding-bottom: .5em;
 }
 
@@ -1308,7 +1310,7 @@ a:active {
     box-sizing: border-box;
     width: 100%;
     padding: 0.5em 1em;
-    border: 1px solid $primary-bkgd-color;
+    border: 1px solid $navigate-bkgd-color;
     border-radius: 0;
 }
 
@@ -1408,66 +1410,75 @@ a:active {
 
 /* Rules for sidebar left and sidebar right*/
 
-@media screen and (min-width: 65em) {
+@media screen and (min-width: 58em) {
     
-    /* Sidebar right layout*/
-    .sidebar-right .content-area {
-        float: left;
+    /* Sidebar layout*/
+    .sidebar-right .widget-area,
+    .sidebar-left .widget-area {
+        width: 35%;
+        margin: 0;
+        overflow: hidden;
+        display: block;
+    }
+    
+    .sidebar-right .content-area,
+    .sidebar-left .content-area {
         width: 65%;        
     }
     
-    .sidebar-right .site-main {
+    .sidebar-right .site-main,
+    .sidebar-left .site-main {
         width: 100%;
+    }
+    
+    .sidebar-right .widget,
+    .sidebar-left .widget {
+        width: 100%;
+        margin: 0 0 1em;
+    }
+    
+    
+    /* Sidebar right layout*/
+    .sidebar-right .content-area,
+    .sidebar-right .widget {
+        float: left;
+    }
+    
+    .sidebar-right .site-main {
         float: right;
         padding-right: .5em;
         padding-left: 1em;
     }
     
     .sidebar-right .widget-area {
-        width: 35%;
-        margin: 0;
         float: right;
-        overflow: hidden;
         padding-left: .5em;
         padding-right: 1em;
-        display: block;
     }
     
-    .sidebar-right .widget {
-        width: 100%;
-        max-width: 17em;
-        float: left;
-        margin: 0 0 1em;
-    }
     
     /* Sidebar left layout */
-    .sidebar-left .widget-area {
-        width: 35%;
-        margin: 0;
-        float: left;
-        overflow: hidden;
-        padding-right: .5em;
-        padding-left: 1em;
-        display: block;
-    }
-    
-    .sidebar-left .widget {
-        width: 100%;
-        max-width: 17em;
-        float: right;
-        margin: 0 0 1em;
-    }
-    
+    .sidebar-left .widget,
     .sidebar-left .content-area {
         float: right;
-        width: 65%;        
+    }
+    
+    .sidebar-left .widget-area {
+        float: left;
+        padding-right: .5em;
+        padding-left: 1em;
     }
     
     .sidebar-left .site-main {
-        width: 100%;
         float: left;
         padding-left: .5em;
         padding-right: 1em;
+    }
+    
+    /* Limit and center site content on large screens */
+    .site-content {
+        max-width: 60em;
+        margin: 0 auto;
     }
 }
 
@@ -1484,7 +1495,6 @@ a:active {
 
 @media screen and (min-width: 45em) {
     .site-main {
-        max-width: 53em;
         margin: 1rem auto 0;
     }
     
@@ -1497,7 +1507,7 @@ a:active {
 .page-title {
     text-align: center;
     background: $primary-bkgd-color;
-    line-height: 1em;
+    line-height: .85em;
     color: $primary-link-color;
     padding: .3em;
     font-family: 'Muli', sans-serif;
@@ -1615,10 +1625,6 @@ a:active {
     text-transform: uppercase;
 }
 
-.pingback .edit-link {
-    padding-bottom: 1em;
-}
-
 .archive-description,
 .error-message {
     text-align: center;
@@ -1675,6 +1681,7 @@ a:active {
 .comment-body {
     border-bottom: 1px solid #999;
     margin-bottom: 2em;
+    padding-bottom: 1em;
 }
 
 .comment-meta {
@@ -2039,4 +2046,12 @@ img.aligncenter {
     background: $primary-text-color;
     color: $primary-bkgd-color;
     text-align: center;
+}
+
+/*--------------------------------------------------------------
+# Custom CSS Classes
+--------------------------------------------------------------*/
+
+.output {
+    border-left-color: $body-bkgd-color;
 }

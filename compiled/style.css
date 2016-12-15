@@ -46,6 +46,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
         ## Images
 	## Galleries
 # Footer
+# Custom CSS Classes
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Variables
@@ -524,7 +525,7 @@ input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
   color: #625dd1;
-  background: #ddd;
+  background: #f2f2f2;
 }
 
 input[type="text"],
@@ -543,7 +544,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-  color: #666;
+  color: #d4d4d4;
   border: 1px solid #ccc;
   border-radius: 3px;
   padding: 3px;
@@ -569,7 +570,7 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-  color: #111;
+  color: #272727;
 }
 
 textarea {
@@ -1285,7 +1286,8 @@ a:active {
 
 .widget_archive li,
 .widget_categories > ul > li,
-.widget_recent_comments li {
+.widget_recent_comments li,
+.widget_recent_entries li {
   padding-bottom: .5em;
 }
 
@@ -1298,7 +1300,7 @@ a:active {
   box-sizing: border-box;
   width: 100%;
   padding: 0.5em 1em;
-  border: 1px solid #f2f2f2;
+  border: 1px solid #d4d4d4;
   border-radius: 0;
 }
 
@@ -1394,65 +1396,72 @@ a:active {
 ## Global
 --------------------------------------------------------------*/
 /* Rules for sidebar left and sidebar right*/
-@media screen and (min-width: 65em) {
-  /* Sidebar right layout*/
-  .sidebar-right .content-area {
-    float: left;
+@media screen and (min-width: 58em) {
+  /* Sidebar layout*/
+  .sidebar-right .widget-area,
+  .sidebar-left .widget-area {
+    width: 35%;
+    margin: 0;
+    overflow: hidden;
+    display: block;
+  }
+
+  .sidebar-right .content-area,
+  .sidebar-left .content-area {
     width: 65%;
   }
 
-  .sidebar-right .site-main {
+  .sidebar-right .site-main,
+  .sidebar-left .site-main {
     width: 100%;
+  }
+
+  .sidebar-right .widget,
+  .sidebar-left .widget {
+    width: 100%;
+    margin: 0 0 1em;
+  }
+
+  /* Sidebar right layout*/
+  .sidebar-right .content-area,
+  .sidebar-right .widget {
+    float: left;
+  }
+
+  .sidebar-right .site-main {
     float: right;
     padding-right: .5em;
     padding-left: 1em;
   }
 
   .sidebar-right .widget-area {
-    width: 35%;
-    margin: 0;
     float: right;
-    overflow: hidden;
     padding-left: .5em;
     padding-right: 1em;
-    display: block;
-  }
-
-  .sidebar-right .widget {
-    width: 100%;
-    max-width: 17em;
-    float: left;
-    margin: 0 0 1em;
   }
 
   /* Sidebar left layout */
-  .sidebar-left .widget-area {
-    width: 35%;
-    margin: 0;
-    float: left;
-    overflow: hidden;
-    padding-right: .5em;
-    padding-left: 1em;
-    display: block;
-  }
-
-  .sidebar-left .widget {
-    width: 100%;
-    max-width: 17em;
-    float: right;
-    margin: 0 0 1em;
-  }
-
+  .sidebar-left .widget,
   .sidebar-left .content-area {
     float: right;
-    width: 65%;
+  }
+
+  .sidebar-left .widget-area {
+    float: left;
+    padding-right: .5em;
+    padding-left: 1em;
   }
 
   .sidebar-left .site-main {
-    width: 100%;
     float: left;
     padding-left: .5em;
     padding-right: 1em;
+  }
+
+  /* Limit and center site content on large screens */
+  .site-content {
+    max-width: 60em;
+    margin: 0 auto;
   }
 }
 .site-main {
@@ -1467,7 +1476,6 @@ a:active {
 }
 @media screen and (min-width: 45em) {
   .site-main {
-    max-width: 53em;
     margin: 1rem auto 0;
   }
 
@@ -1479,7 +1487,7 @@ a:active {
 .page-title {
   text-align: center;
   background: #f2f2f2;
-  line-height: 1em;
+  line-height: .85em;
   color: #cc880a;
   padding: .3em;
   font-family: 'Muli', sans-serif;
@@ -1597,10 +1605,6 @@ a:active {
   text-transform: uppercase;
 }
 
-.pingback .edit-link {
-  padding-bottom: 1em;
-}
-
 .archive-description,
 .error-message {
   text-align: center;
@@ -1656,6 +1660,7 @@ a:active {
 .comment-body {
   border-bottom: 1px solid #999;
   margin-bottom: 2em;
+  padding-bottom: 1em;
 }
 
 .comment-meta {
@@ -2013,4 +2018,11 @@ img.aligncenter {
   background: #272727;
   color: #f2f2f2;
   text-align: center;
+}
+
+/*--------------------------------------------------------------
+# Custom CSS Classes
+--------------------------------------------------------------*/
+.output {
+  border-left-color: #7da091;
 }
