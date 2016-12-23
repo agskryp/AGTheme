@@ -47,6 +47,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Galleries
 # Footer
 # Custom CSS Classes
+# Home Page
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Variables
@@ -356,7 +357,7 @@ pre {
   max-width: 100%;
   overflow: auto;
   padding: 1em;
-  border-left: 4px solid #cc880a;
+  border-left: 4px solid #7da091;
 }
 
 code,
@@ -409,7 +410,7 @@ html {
 }
 
 body {
-  background: #7da091;
+  background: none;
   /* Fallback for when there is no custom background color defined. */
 }
 
@@ -501,7 +502,7 @@ input[type="submit"] {
   padding: .5em 1.4em;
   font-family: "Muli", sans-serif;
   border: 1px solid #d4d4d4;
-  color: #cc880a;
+  color: #7da091;
   line-height: 0.8em;
   text-decoration: none;
   background: #d4d4d4;
@@ -512,7 +513,7 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-  color: #625dd1;
+  color: #776036;
   background: #d4d4d4;
 }
 
@@ -524,8 +525,8 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-  color: #625dd1;
-  background: #f2f2f2;
+  color: #776036;
+  background: #f8f4f0;
 }
 
 input[type="text"],
@@ -593,19 +594,19 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: #cc880a;
+  color: #7da091;
   text-decoration: none;
-  transition: color ease-in-out 200ms;
+  transition: color ease-in-out 20ms;
 }
 
 a:visited {
-  color: #cc880a;
+  color: #7da091;
 }
 
 a:hover,
 a:focus,
 a:active {
-  color: #625dd1;
+  color: #776036;
 }
 
 a:focus {
@@ -752,7 +753,7 @@ a:active {
   left: 20%;
   font-size: 1em;
   text-transform: uppercase;
-  background-color: #7da091;
+  background-color: #f8f4f0;
   color: #cdcdcd;
   border: 1px solid #000;
   border-radius: 10%/40% 40% 0 0;
@@ -974,7 +975,7 @@ a:active {
 }
 
 .paging-navigation .current {
-  background: #f2f2f2;
+  background: #f8f4f0;
 }
 
 .paging-navigation ul {
@@ -992,12 +993,12 @@ a:active {
 .post-navigation a:focus,
 .paging-navigation a:hover,
 .paging-navigation a:focus {
-  background: #f2f2f2;
+  background: #f8f4f0;
 }
 
 .comment-navigation a:focus,
 .comment-navigation a:hover {
-  background: #f2f2f2;
+  background: #f8f4f0;
 }
 
 .post-navigation .post-title {
@@ -1172,15 +1173,22 @@ a:active {
 }
 
 .site-title {
+  max-width: 430px;
   padding: .1em .5em .2em;
-  margin: 0;
   font-family: 'Lato', sans-serif;
-  font-size: 4.4em;
+  font-size: 19vw;
   line-height: .6em;
   font-weight: 100;
-  display: inline-block;
   color: #cdcdcd;
-  border-right: 2px solid rgba(200, 200, 200, 0.6);
+  border-right: 2px solid #cdcdcd;
+}
+
+.site-title-top {
+  float: left;
+}
+
+.site-title-bottom {
+  float: right;
 }
 
 .site-title a {
@@ -1194,18 +1202,85 @@ a:active {
 }
 
 .site-description {
-  padding: 0 .5em;
-  margin: 0;
-  font-size: 180%;
-  line-height: .8em;
+  max-width: 430px;
+  margin: 0 auto;
+  padding-top: 1.5em;
+  line-height: 1;
+  font-size: 3.6vw;
+  text-align: center;
   color: #cdcdcd;
-  display: inline-block;
   font-family: "Lato", sans-serif;
   font-weight: 900;
   font-variant: small-caps;
+  clear: both;
 }
 
-@media screen and (max-width: 45em) {
+.site-description-top {
+  font-size: 0.9em;
+  padding-left: 6.8vw;
+  letter-spacing: 7.8vw;
+  display: block;
+}
+
+.site-description-bottom {
+  font-size: 2em;
+}
+
+/* from 430px to 591px */
+@media screen and (min-width: 430px) and (max-width: 720px) {
+  .site-title {
+    font-size: 6.4em;
+  }
+
+  .site-description {
+    max-width: 565px;
+    font-size: 1.2em;
+  }
+
+  .site-description-top {
+    letter-spacing: 2.5em;
+    padding-left: 2.2em;
+  }
+}
+@media screen and (min-width: 720px) and (max-width: 910px) {
+  .site-title {
+    max-width: 537px;
+    font-size: 6.4em;
+  }
+
+  .site-description {
+    font-size: 1.25em;
+    max-width: 537px;
+  }
+
+  .site-description-top {
+    letter-spacing: 2.47em;
+    padding-left: 5vw;
+  }
+}
+@media screen and (min-width: 910px) {
+  .site-title {
+    max-width: 455px;
+    font-size: 5.4em;
+    margin: 0;
+    padding-top: 0;
+  }
+
+  .site-description {
+    font-size: 1em;
+    max-width: 462px;
+    text-align: left;
+    margin: 0;
+    padding-left: 3em;
+    padding-top: 0;
+  }
+
+  .site-description-top {
+    padding-left: 0;
+    letter-spacing: 2.45em;
+  }
+}
+@media screen and (max-width: 910px) {
   .site-branding {
     display: block;
   }
@@ -1216,35 +1291,19 @@ a:active {
     width: 100%;
     border: none;
   }
-
-  .site-description {
-    padding-top: .5em;
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-  }
-}
-@media screen and (max-width: 25em) {
-  .site-title {
-    font-size: 3em;
-  }
-
-  .site-description {
-    font-size: 110%;
-  }
 }
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
 .widget-area {
   position: relative;
-  background-color: #7da091;
+  background-color: #f8f4f0;
 }
 
 .widget {
   margin: 1rem 0 0;
   padding: 1.8em;
-  background: #f2f2f2;
+  background: #f8f4f0;
 }
 
 @media screen and (min-width: 43em) {
@@ -1363,7 +1422,7 @@ a:active {
 
 .calendar_wrap thead {
   background: #272727;
-  color: #f2f2f2;
+  color: #f8f4f0;
 }
 
 .calendar_wrap thead th {
@@ -1375,7 +1434,7 @@ a:active {
   font-size: .9em;
   text-align: center;
   background: #d6d6d6;
-  border: 3px solid #f2f2f2;
+  border: 3px solid #f8f4f0;
 }
 
 .calendar_wrap .pad {
@@ -1469,14 +1528,13 @@ a:active {
   line-height: 1.6em;
 }
 
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 45em) {
   .site-main {
     font-size: 1em;
   }
-}
-@media screen and (min-width: 45em) {
-  .site-main {
-    margin: 1rem auto 0;
+
+  .site-title-top {
+    margin-left: 0;
   }
 
   .sidebar-right .site-main,
@@ -1486,16 +1544,16 @@ a:active {
 }
 .page-title {
   text-align: center;
-  background: #f2f2f2;
+  background: #f8f4f0;
   line-height: .85em;
-  color: #cc880a;
+  color: #7da091;
   padding: .3em;
   font-family: 'Muli', sans-serif;
   font-weight: 900;
   font-size: 3em;
   font-variant: small-caps;
   margin: 0;
-  border-bottom: 2px solid #cc880a;
+  border-bottom: 2px solid #7da091;
 }
 
 /*--------------------------------------------------------------
@@ -1518,11 +1576,11 @@ a:active {
 
 .hentry {
   margin: 0 0 1.5em;
-  background: #f2f2f2;
+  background: #f8f4f0;
 }
 
 .entry-header {
-  padding: 1.5em 0;
+  padding: 1.5em 0 0;
 }
 
 .entry-title {
@@ -1532,9 +1590,8 @@ a:active {
   font-size: 3.3em;
   line-height: .9em;
   letter-spacing: -2px;
-  color: #cc880a;
-  border-left: 4px solid #cc880a;
-  padding: 0 4rem 0 1rem;
+  color: #7da091;
+  padding: 0 4rem 0 1.4rem;
   margin-bottom: .4rem;
   word-wrap: break-word;
 }
@@ -1608,7 +1665,7 @@ a:active {
 .archive-description,
 .error-message {
   text-align: center;
-  background: #f2f2f2;
+  background: #f8f4f0;
   margin: 0 0 1rem;
   font-weight: 900;
   font-style: italic;
@@ -1636,7 +1693,7 @@ a:active {
 .comments-area {
   margin: 1rem 0;
   padding: 1em 1.4em;
-  background: #f2f2f2;
+  background: #f8f4f0;
 }
 
 .comments-title {
@@ -1722,7 +1779,7 @@ a:active {
   padding: .5em 1.4em;
   font-family: "Muli", sans-serif;
   font-size: 85%;
-  color: #cc880a;
+  color: #7da091;
   line-height: 1.3em;
   text-decoration: none;
   background: #d4d4d4;
@@ -1732,8 +1789,8 @@ a:active {
 
 .reply a:hover,
 .reply a:focus {
-  background: #f2f2f2;
-  color: #625dd1;
+  background: #f8f4f0;
+  color: #776036;
 }
 
 /* Verified Author Icon */
@@ -1834,7 +1891,7 @@ a:active {
   padding: .5em 1.4em;
   font-family: "Muli", sans-serif;
   font-size: 85%;
-  color: #cc880a;
+  color: #7da091;
   line-height: 1.3em;
   text-decoration: none;
   background: #d4d4d4;
@@ -1844,8 +1901,8 @@ a:active {
 
 .comment-form .form-submit input:focus,
 .comment-form .form-submit input:hover {
-  background: #f2f2f2;
-  color: #625dd1;
+  background: #f8f4f0;
+  color: #776036;
 }
 
 .comment-form label {
@@ -1855,7 +1912,7 @@ a:active {
 }
 
 .comment-form .required {
-  color: #cc880a;
+  color: #7da091;
 }
 
 /*--------------------------------------------------------------
@@ -2016,7 +2073,7 @@ img.aligncenter {
 .site-footer {
   padding: 6em 1em;
   background: #272727;
-  color: #f2f2f2;
+  color: #f8f4f0;
   text-align: center;
 }
 
@@ -2024,5 +2081,148 @@ img.aligncenter {
 # Custom CSS Classes
 --------------------------------------------------------------*/
 .output {
-  border-left-color: #7da091;
+  border-left-color: #776036;
+}
+
+/*--------------------------------------------------------------
+# Home Page
+--------------------------------------------------------------*/
+.homepage-bkgd {
+  background: url(http://agskryp.dev/wp-content/uploads/2016/12/bkgdHome.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.homepage-container {
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  max-width: 60em;
+}
+
+.homepage-menu-item {
+  width: 100%;
+  padding: 1em 0;
+  margin: 2em 0;
+  text-align: center;
+}
+
+.homepage-menu-item p {
+  padding: 0 3em;
+  color: #cdcdcd;
+}
+
+.homepage-menu-item p,
+.homepage-menu-button {
+  font-size: 1.2em;
+}
+
+.homepage-menu-button {
+  background: #7da091;
+  border-radius: 5px;
+  border-color: #7da091;
+  color: #272727;
+  padding: 10px;
+  width: 60%;
+  margin: 0 auto;
+  font-weight: 100;
+}
+
+.homepage-menu-button-hover {
+  background: #776036;
+  border: #776036;
+  color: #272727;
+}
+
+.homepage-menu-item-blog {
+  background: rgba(56, 47, 38, 0.3);
+  box-shadow: 4px 4px 4px rgba(56, 47, 38, 0.3), -4px -4px 4px rgba(56, 47, 38, 0.3);
+}
+
+.homepage-menu-item-portfolio {
+  background: rgba(40, 42, 41, 0.3);
+  box-shadow: 4px 4px 4px rgba(40, 42, 41, 0.3), -4px -4px 4px rgba(40, 42, 41, 0.3);
+}
+
+.homepage-menu-item-about {
+  background: rgba(44, 68, 55, 0.3);
+  box-shadow: 4px 4px 4px rgba(44, 68, 55, 0.3), -4px -4px 4px rgba(44, 68, 55, 0.3);
+}
+
+.homepage-menu-item-contact {
+  background: rgba(48, 53, 72, 0.3);
+  box-shadow: 4px 4px 4px rgba(48, 53, 72, 0.3), -4px -4px 4px rgba(48, 53, 72, 0.3);
+}
+
+.homepage-menu-item-blog,
+.homepage-menu-item-portfolio,
+.homepage-menu-item-about,
+.homepage-menu-item-contact {
+  border-radius: 0%;
+}
+
+/* Homepage style for devices 460px and larger */
+@media screen and (min-width: 460px) {
+  .homepage-menu-item {
+    height: 150px;
+    margin: 2em 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .homepage-menu-item p {
+    display: inline-block;
+    padding: 0 2em;
+    margin: 0;
+    vertical-align: middle;
+    width: 50%;
+  }
+
+  .homepage-menu-button {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20%;
+  }
+
+  .homepage-menu-item i {
+    display: inline-block;
+    vertical-align: middle;
+    width: 15%;
+  }
+}
+/* Homepage style for devices 910px and larger */
+@media screen and (min-width: 910px) {
+  .homepage-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .homepage-menu-item {
+    height: 100%;
+    width: 13em;
+    margin: 0.5em;
+  }
+
+  .homepage-menu-item-blog,
+  .homepage-menu-item-portfolio,
+  .homepage-menu-item-about,
+  .homepage-menu-item-contact {
+    border-radius: 15%;
+  }
+
+  .homepage-menu-item p,
+  .homepage-menu-item i,
+  .homepage-menu-button {
+    display: block;
+    width: 100%;
+  }
+
+  .homepage-menu-button {
+    padding: 5px 10px;
+  }
+
+  .homepage-menu-item p {
+    font-size: 1em;
+    padding: 2em 1em;
+  }
 }
