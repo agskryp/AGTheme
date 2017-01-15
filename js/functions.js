@@ -5,17 +5,42 @@
  */
 
 ( function( $ ) {
+    // Wraps class around figured images (?)
     $( 'img.aligncenter' ).wrap( '<figure class="centered-image"></figure>' );
     
-    $( '.homepage-menu-item a' ).on( 'hover', function() {
-        $( '.homepage-menu-button', this ).toggleClass( 'homepage-menu-button-hover' );
+    // Applys hover class on homepage menu
+    $( '.homepage-menu-item a' )
+        .on( 'hover', function() {
+            $( '.homepage-menu-button', this ).toggleClass( 'homepage-menu-button-hover' );
+      }).on( 'focus', function() {
+            $( '.homepage-menu-button', this ).addClass( 'homepage-menu-button-hover' );
+      }).on( 'focusout', function() {
+            $( '.homepage-menu-button', this ).removeClass( 'homepage-menu-button-hover' );
     });
     
-    $( '.homepage-menu-item a' ).on( 'focus', function() {
-        $ ( this ).find( '.homepage-menu-button' ).addClass( 'homepage-menu-button-hover' );
-    });
-    
-    $( '.homepage-menu-item a' ).on( 'focusout', function() {
-        $ ( this ).find( '.homepage-menu-button' ).removeClass( 'homepage-menu-button-hover' );
-    });
+    // TweenLite Animation on homepage
+    TweenMax.from(".site-title-top", 2, {
+    paddingLeft: "1em",
+    opacity: 0,
+    ease: Power1.easeInOut
+});
+
+TweenMax.from(".site-title-bottom", 2, {
+    paddingRight: "1em",
+    opacity: 0,
+    ease: Power1.easeInOut
+});
+
+TweenMax.staggerFrom(".site-description span", 1, {
+    bottom: "1em",
+    opacity: 0,
+    delay: 1.5
+}, -0.3);
+
+
+    TweenMax.staggerFrom(".homepage-menu-item", 1, {
+    bottom: "1em",
+    opacity: 0,
+    delay: 2
+}, 0.2);
 })( jQuery );

@@ -19,27 +19,27 @@
     </head>
 
     <body <?php body_class(); ?>>
-        <div id="page" class="site">
+        <div id="page">
             <a class="skip-link screen-reader-text" href="#homepageMenu">
                 <?php esc_html_e( 'Skip to menu', 'agtheme' ); ?>
             </a>
 
             <div id="primary" class="content-area">
-                <main id="main" class="site-main" role="main">
-                    <header class="site-branding">
-                        <h1 class="site-title">
-                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                                <span class="site-title-top">Andrew</span>
-                                <span class="site-title-bottom">Skrypnyk</span>
-                            </a>
-                        </h1>
-                        
-                        <p class="site-description">
-                            <span class="site-description-top">Front-End</span>
-                            <span class="site-description-bottom">Web Developer & Designer</span>
-                        </p>
-                    </header>
+                <header class="site-branding">
+                    <h1 class="site-title">
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                            <span class="site-title-top">Andrew</span>
+                            <span class="site-title-bottom">Skrypnyk</span>
+                        </a>
+                    </h1>
 
+                    <p class="site-description">
+                        <span class="site-description-top">Front-End Web</span>
+                        <span class="site-description-bottom">Designer // Developer</span>
+                    </p>
+                </header>
+
+                <main id="main" class="site-main" role="main">
                     <ul id="homepageMenu" class="homepage-container">
                         <li class="homepage-menu-item homepage-menu-item-blog">
                             <a href="http://agskryp.dev/blog/">
@@ -50,7 +50,7 @@
                         </li>
 
                         <li class="homepage-menu-item homepage-menu-item-portfolio">
-                            <a href="">
+                            <a href="http://agskryp.dev/portfolio/">
                                 <i class="fa fa-list-alt fa-5x"></i>
                                 <p>Check out various web projects and what was involved in the building process</p>
                                 <div class="homepage-menu-button">View Portfolio</div>
@@ -77,6 +77,8 @@
                 </main><!-- #main -->
             </div><!-- #primary -->
         </div><!-- #page -->
+        
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 
     <?php wp_footer(); ?>
 

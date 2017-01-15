@@ -349,7 +349,7 @@ address {
 }
 
 pre {
-  background: #d4d4d4;
+  background: #dcdcdc;
   font-family: "Courier 10 Pitch", Courier, monospace;
   font-size: 0.9375rem;
   line-height: 1.5;
@@ -357,7 +357,7 @@ pre {
   max-width: 100%;
   overflow: auto;
   padding: 1em;
-  border-left: 4px solid #7da091;
+  border-left: 4px solid #7b9e8f;
 }
 
 code,
@@ -412,6 +412,10 @@ html {
 body {
   background: none;
   /* Fallback for when there is no custom background color defined. */
+}
+
+.site {
+  background: #e6f6e6;
 }
 
 blockquote:before,
@@ -501,11 +505,11 @@ input[type="submit"] {
   display: inline-block;
   padding: .5em 1.4em;
   font-family: "Muli", sans-serif;
-  border: 1px solid #d4d4d4;
-  color: #7da091;
+  border: 1px solid #dcdcdc;
+  color: #7b9e8f;
   line-height: 0.8em;
   text-decoration: none;
-  background: #d4d4d4;
+  background: #dcdcdc;
   transition: none;
 }
 
@@ -513,8 +517,8 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-  color: #776036;
-  background: #d4d4d4;
+  color: #9f8b68;
+  background: #dcdcdc;
 }
 
 button:focus,
@@ -525,7 +529,7 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-  color: #776036;
+  color: #9f8b68;
   background: #f8f4f0;
 }
 
@@ -545,7 +549,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-  color: #d4d4d4;
+  color: #dcdcdc;
   border: 1px solid #ccc;
   border-radius: 3px;
   padding: 3px;
@@ -594,19 +598,19 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: #7da091;
+  color: #7b9e8f;
   text-decoration: none;
   transition: color ease-in-out 20ms;
 }
 
 a:visited {
-  color: #7da091;
+  color: #7b9e8f;
 }
 
 a:hover,
 a:focus,
 a:active {
-  color: #776036;
+  color: #9f8b68;
 }
 
 a:focus {
@@ -753,7 +757,7 @@ a:active {
   left: 20%;
   font-size: 1em;
   text-transform: uppercase;
-  background-color: #f8f4f0;
+  background-color: #e6f6e6;
   color: #cdcdcd;
   border: 1px solid #000;
   border-radius: 10%/40% 40% 0 0;
@@ -917,7 +921,7 @@ a:active {
 .site-main .comment-navigation,
 .site-main .posts-navigation,
 .site-main .post-navigation {
-  margin: 0 0 1rem;
+  margin: 0;
   overflow: hidden;
 }
 
@@ -961,17 +965,17 @@ a:active {
   width: 100%;
   text-decoration: none;
   padding: 1rem 1.6rem;
-  background: #d4d4d4;
+  background: #dcdcdc;
   transition: none;
 }
 
 .comment-navigation a {
-  border: 1px solid #d4d4d4;
+  border: 1px solid #dcdcdc;
 }
 
 .paging-navigation {
   text-align: center;
-  background: #d4d4d4;
+  background: #dcdcdc;
 }
 
 .paging-navigation .current {
@@ -1026,6 +1030,7 @@ a:active {
   text-align: right;
   width: 100%;
   display: block;
+  margin-bottom: 1em;
 }
 
 .comment-navigation .nav-next a::after {
@@ -1071,6 +1076,7 @@ a:active {
   .comment-navigation .nav-next {
     float: right;
     text-align: right;
+    margin-bottom: 0;
   }
 }
 /*--------------------------------------------------------------
@@ -1204,50 +1210,69 @@ a:active {
   color: inherit;
 }
 
-.site-title a:hover,
-.site-title a:focus {
-  font-style: italic;
-}
-
 .site-description {
   max-width: 430px;
   margin: 0 auto;
-  padding-top: 1.5em;
+  padding-top: 2.5em;
   line-height: 1;
   font-size: 3.6vw;
   text-align: center;
   color: #cdcdcd;
-  font-family: "Lato", sans-serif;
+  font-family: "Muli", sans-serif;
   font-weight: 900;
   font-variant: small-caps;
   clear: both;
+  animation: site-description-color-ani 10s ease-in-out infinite;
+}
+
+.site-description-top,
+.site-description-bottom {
+  position: relative;
 }
 
 .site-description-top {
   font-size: 0.9em;
-  padding-left: 6.8vw;
-  letter-spacing: 7.8vw;
+  padding-left: 3.8vw;
+  letter-spacing: 3.3vw;
   display: block;
+  font-weight: 100;
 }
 
 .site-description-bottom {
-  font-size: 2em;
+  font-size: 2.4em;
 }
 
+@keyframes site-description-color-ani {
+  0% {
+    color: #9f8b68;
+  }
+  25% {
+    color: #cdcdcd;
+  }
+  50% {
+    color: #78a58f;
+  }
+  75% {
+    color: #primary-link-color;
+  }
+  100% {
+    color: #9f8b68;
+  }
+}
 /* from 430px to 591px */
 @media screen and (min-width: 430px) and (max-width: 720px) {
   .site-title {
-    font-size: 6.4em;
+    font-size: 5.13em;
   }
 
   .site-description {
     max-width: 565px;
-    font-size: 1.2em;
+    font-size: 1em;
   }
 
   .site-description-top {
-    letter-spacing: 2.5em;
-    padding-left: 2.2em;
+    letter-spacing: 1em;
+    padding-left: 1em;
   }
 }
 @media screen and (min-width: 720px) and (max-width: 910px) {
@@ -1262,8 +1287,8 @@ a:active {
   }
 
   .site-description-top {
-    letter-spacing: 2.47em;
-    padding-left: 5vw;
+    letter-spacing: 1em;
+    padding-left: 1em;
   }
 }
 @media screen and (min-width: 910px) {
@@ -1277,7 +1302,6 @@ a:active {
   .site-description {
     font-size: 1em;
     max-width: 462px;
-    text-align: left;
     margin: 0;
     padding-left: 3em;
     padding-top: 0;
@@ -1285,7 +1309,7 @@ a:active {
 
   .site-description-top {
     padding-left: 0;
-    letter-spacing: 2.45em;
+    letter-spacing: 1em;
   }
 }
 @media screen and (max-width: 910px) {
@@ -1305,7 +1329,7 @@ a:active {
 --------------------------------------------------------------*/
 .widget-area {
   position: relative;
-  background-color: #f8f4f0;
+  background-color: #e6f6e6;
 }
 
 .widget {
@@ -1322,7 +1346,6 @@ a:active {
         flex-wrap: wrap;
     -ms-flex-pack: center;
         justify-content: center;
-    padding: 1rem 1rem 0;
   }
 
   .widget {
@@ -1370,7 +1393,7 @@ a:active {
   box-sizing: border-box;
   width: 100%;
   padding: 0.5em 1em;
-  border: 1px solid #d4d4d4;
+  border: 1px solid #dcdcdc;
   border-radius: 0;
 }
 
@@ -1466,7 +1489,7 @@ a:active {
 ## Global
 --------------------------------------------------------------*/
 /* Rules for sidebar left and sidebar right*/
-@media screen and (min-width: 58em) {
+@media screen and (min-width: 50em) {
   /* Sidebar layout*/
   .sidebar-right .widget-area,
   .sidebar-left .widget-area {
@@ -1501,13 +1524,11 @@ a:active {
   .sidebar-right .site-main {
     float: right;
     padding-right: .5em;
-    padding-left: 1em;
   }
 
   .sidebar-right .widget-area {
     float: right;
     padding-left: .5em;
-    padding-right: 1em;
   }
 
   /* Sidebar left layout */
@@ -1530,8 +1551,8 @@ a:active {
 
   /* Limit and center site content on large screens */
   .site-content {
-    max-width: 60em;
-    margin: 0 auto;
+    max-width: 50em;
+    margin: 1em auto 0;
   }
 }
 .site-main {
@@ -1557,14 +1578,14 @@ a:active {
   text-align: center;
   background: #f8f4f0;
   line-height: .85em;
-  color: #7da091;
+  color: #7b9e8f;
   padding: .3em;
   font-family: 'Muli', sans-serif;
   font-weight: 900;
   font-size: 3em;
   font-variant: small-caps;
   margin: 0;
-  border-bottom: 2px solid #7da091;
+  border-bottom: 2px solid #7b9e8f;
 }
 
 /*--------------------------------------------------------------
@@ -1601,7 +1622,7 @@ a:active {
   font-size: 3.3em;
   line-height: .9em;
   letter-spacing: -2px;
-  color: #7da091;
+  color: #7b9e8f;
   padding: 0 4rem 0 1.4rem;
   margin-bottom: .4rem;
   word-wrap: break-word;
@@ -1696,15 +1717,11 @@ a:active {
   max-width: 53em;
 }
 
-.page .edit-link {
-  padding: 0 1.6rem 1.6rem;
-}
-
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
 .comments-area {
-  margin: 1rem 0;
+  margin: 0 0 1em;
   padding: 1em 1.4em;
   background: #f8f4f0;
 }
@@ -1792,18 +1809,18 @@ a:active {
   padding: .5em 1.4em;
   font-family: "Muli", sans-serif;
   font-size: 85%;
-  color: #7da091;
+  color: #7b9e8f;
   line-height: 1.3em;
   text-decoration: none;
-  background: #d4d4d4;
-  border: 1px solid #d4d4d4;
+  background: #dcdcdc;
+  border: 1px solid #dcdcdc;
   transition: none;
 }
 
 .reply a:hover,
 .reply a:focus {
   background: #f8f4f0;
-  color: #776036;
+  color: #9f8b68;
 }
 
 /* Verified Author Icon */
@@ -1819,7 +1836,7 @@ a:active {
 
 @media screen and (min-width: 30em) {
   .comments-area {
-    margin: 1rem 0;
+    margin: 1em 0;
   }
 
   .children {
@@ -1899,23 +1916,26 @@ a:active {
   text-align: right;
 }
 
-.comment-form .form-submit input {
+.comment-form .form-submit input,
+input[type="submit"] {
   display: inline-block;
   padding: .5em 1.4em;
   font-family: "Muli", sans-serif;
   font-size: 85%;
-  color: #7da091;
+  color: #7b9e8f;
   line-height: 1.3em;
   text-decoration: none;
-  background: #d4d4d4;
-  border: 1px solid #d4d4d4;
+  background: #dcdcdc;
+  border: 1px solid #dcdcdc;
   transition: none;
 }
 
 .comment-form .form-submit input:focus,
-.comment-form .form-submit input:hover {
+.comment-form .form-submit input:hover,
+input[type="submit"]:focus,
+input[type="submit"]:hover {
   background: #f8f4f0;
-  color: #776036;
+  color: #9f8b68;
 }
 
 .comment-form label {
@@ -1925,7 +1945,7 @@ a:active {
 }
 
 .comment-form .required {
-  color: #7da091;
+  color: #7b9e8f;
 }
 
 /*--------------------------------------------------------------
@@ -2095,7 +2115,7 @@ img.aligncenter {
 # Custom CSS Classes
 --------------------------------------------------------------*/
 .output {
-  border-left-color: #776036;
+  border-left-color: #9f8b68;
 }
 
 /*--------------------------------------------------------------
@@ -2118,6 +2138,7 @@ img.aligncenter {
   padding: 1em 0;
   margin: 2em 0;
   text-align: center;
+  position: relative;
 }
 
 .homepage-menu-item p {
@@ -2131,9 +2152,9 @@ img.aligncenter {
 }
 
 .homepage-menu-button {
-  background: #7da091;
+  background: #7b9e8f;
   border-radius: 5px;
-  border-color: #7da091;
+  border-color: #7b9e8f;
   color: #272727;
   padding: 10px;
   width: 60%;
@@ -2142,8 +2163,8 @@ img.aligncenter {
 }
 
 .homepage-menu-button-hover {
-  background: #776036;
-  border: #776036;
+  background: #9f8b68;
+  border: #9f8b68;
   color: #272727;
 }
 
@@ -2234,6 +2255,10 @@ img.aligncenter {
   .homepage-menu-button {
     display: block;
     width: 100%;
+  }
+
+  .homepage-menu-button {
+    width: 70%;
   }
 
   .homepage-menu-button {

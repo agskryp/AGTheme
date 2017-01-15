@@ -55,13 +55,13 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Variables
 --------------------------------------------------------------*/
 
-$primary-link-color:   #7da091;             // Greenish
-$secondary-link-color: #776036;             // Orangey
+$primary-link-color:   #7b9e8f;             // Greenish
+$secondary-link-color: #9f8b68;             // Orangey
 $primary-text-color:   #272727;             // Very Dark Grey
 $primary-bkgd-color:   #f8f4f0;             // Soft White
 $header-font-color:    #cdcdcd;             // Very Light Grey
-$navigate-bkgd-color:  #d4d4d4;             // Light Grey
-$body-bkgd-color:      #f8f4f0;             // Very Light Grey
+$navigate-bkgd-color:  #dcdcdc;             // Light Grey
+$body-bkgd-color:      #e6f6e6;             // Very Light Grey
 $about-bkgd-color:     rgba(44,68,55,0.3);
 $blog-bkgd-color:      rgba(56,47,38,0.3);
 $portfolio-bkgd-color: rgba(40,42,41,0.3);
@@ -425,6 +425,10 @@ html {
 
 body {
 	background: none; /* Fallback for when there is no custom background color defined. */
+}
+
+.site {
+        background: $body-bkgd-color;
 }
 
 blockquote:before,
@@ -927,7 +931,7 @@ a:active {
 .site-main .comment-navigation,
 .site-main .posts-navigation,
 .site-main .post-navigation {
-	margin: 0 0 1rem;
+	margin: 0;
 	overflow: hidden;
 }
 
@@ -1037,6 +1041,7 @@ a:active {
 	text-align: right;
 	width: 100%;
         display: block;
+        margin-bottom: 1em;
 }
 
 .comment-navigation .nav-next a::after {
@@ -1077,6 +1082,7 @@ a:active {
     .comment-navigation .nav-next {
         float: right;
         text-align: right;
+        margin-bottom: 0;
     }
 }
 
@@ -1208,50 +1214,71 @@ a:active {
     color: inherit;
 }
 
-.site-title a:hover,
-.site-title a:focus {
-    font-style: italic;
-}
-
 .site-description {
     max-width: 430px;
     margin: 0 auto;
-    padding-top: 1.5em;
+    padding-top: 2.5em;
     line-height: 1;
     font-size: 3.6vw;
     text-align: center;
     color: $header-font-color;
-    font-family: "Lato", sans-serif;
+    font-family: "Muli", sans-serif;
     font-weight: 900;
     font-variant: small-caps;
     clear: both;
+    animation: site-description-color-ani 10s ease-in-out infinite;
+}
+
+.site-description-top,
+.site-description-bottom {
+    position: relative; //Required for TweenMax
 }
 
 .site-description-top {
     font-size: 0.9em;
-    padding-left: 6.8vw;
-    letter-spacing: 7.8vw;
+    padding-left: 3.8vw;
+    letter-spacing: 3.3vw;
     display: block;
+    font-weight: 100;
 }
 
 .site-description-bottom {
-    font-size: 2em;
+    font-size: 2.4em;
 }
+
+@keyframes site-description-color-ani {
+    0% {
+        color: $secondary-link-color;
+    }
+    25% {
+        color: $header-font-color;
+    }
+    50% {
+        color: #78a58f; //greenish
+    }
+    75% {
+        color: #primary-link-color;
+    }
+    100% {
+        color: $secondary-link-color;
+    }
+}
+
 
 /* from 430px to 591px */
 @media screen and (min-width: 430px) and (max-width: 720px) {
     .site-title {
-        font-size: 6.4em;
+        font-size: 5.13em;
     }
     
     .site-description {
         max-width: 565px;
-        font-size: 1.2em;
+        font-size: 1em;
     }
     
     .site-description-top {
-        letter-spacing: 2.5em;
-        padding-left: 2.2em;
+        letter-spacing: 1em;
+        padding-left: 1em;
     }
 }
 
@@ -1267,8 +1294,8 @@ a:active {
     }
     
     .site-description-top {
-        letter-spacing: 2.47em;
-        padding-left: 5vw;
+        letter-spacing: 1em;
+        padding-left: 1em;
     }
 }
 
@@ -1283,7 +1310,6 @@ a:active {
     .site-description {
         font-size: 1em;
         max-width: 462px;
-        text-align: left;
         margin: 0;
         padding-left: 3em;
         padding-top: 0;
@@ -1291,7 +1317,7 @@ a:active {
     
     .site-description-top {
         padding-left: 0;
-        letter-spacing: 2.45em;
+        letter-spacing: 1em;
     }
 }
 
@@ -1327,7 +1353,6 @@ a:active {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 1rem 1rem 0;
     }
     
     .widget {
@@ -1476,7 +1501,7 @@ a:active {
 
 /* Rules for sidebar left and sidebar right*/
 
-@media screen and (min-width: 58em) {
+@media screen and (min-width: 50em) {
     
     /* Sidebar layout*/
     .sidebar-right .widget-area,
@@ -1501,8 +1526,7 @@ a:active {
     .sidebar-left .widget {
         width: 100%;
         margin: 0 0 1em;
-    }
-    
+    }    
     
     /* Sidebar right layout*/
     .sidebar-right .content-area,
@@ -1513,13 +1537,11 @@ a:active {
     .sidebar-right .site-main {
         float: right;
         padding-right: .5em;
-        padding-left: 1em;
     }
     
     .sidebar-right .widget-area {
         float: right;
         padding-left: .5em;
-        padding-right: 1em;
     }
     
     
@@ -1543,8 +1565,8 @@ a:active {
     
     /* Limit and center site content on large screens */
     .site-content {
-        max-width: 60em;
-        margin: 0 auto;
+        max-width: 50em;
+        margin: 1em auto 0;
     }
 }
 
@@ -1709,16 +1731,12 @@ a:active {
     max-width: 53em;
 }
 
-.page .edit-link {
-    padding: 0 1.6rem 1.6rem;
-}
-
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
 
 .comments-area {
-    margin: 1rem 0;
+    margin: 0 0 1em;
     padding: 1em 1.4em;
     background: $primary-bkgd-color;
 }
@@ -1835,7 +1853,7 @@ a:active {
 @media screen and (min-width: 30em) {
     
     .comments-area {
-        margin: 1rem 0;
+        margin: 1em 0;
     }
     
     .children {
@@ -1918,7 +1936,8 @@ a:active {
     text-align: right;
 }
 
-.comment-form .form-submit input {
+.comment-form .form-submit input,
+input[type="submit"] {
     display: inline-block;
     padding: .5em 1.4em;
     font-family: "Muli", sans-serif;
@@ -1932,7 +1951,9 @@ a:active {
 }
 
 .comment-form .form-submit input:focus,
-.comment-form .form-submit input:hover {
+.comment-form .form-submit input:hover,
+input[type="submit"]:focus,
+input[type="submit"]:hover {
     background: $primary-bkgd-color;
     color: $secondary-link-color;
 }
@@ -2139,6 +2160,7 @@ img.aligncenter {
     padding: 1em 0;
     margin: 2em 0;
     text-align: center;
+    position: relative; // For TweenMax animation
 }
 
 .homepage-menu-item p {
@@ -2251,6 +2273,10 @@ img.aligncenter {
     .homepage-menu-button {
         display: block;
         width: 100%;
+    }
+    
+    .homepage-menu-button {
+        width: 70%;
     }
     
     .homepage-menu-button {

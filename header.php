@@ -21,7 +21,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <div id="page" class="site <?php echo get_theme_mod( 'layout_setting', 'sidebar-right' ); ?>">
+    <div id="page" class="site <?php if ( is_home() || is_single() || is_archive() ) : echo get_theme_mod( 'layout_setting', 'sidebar-right' ); endif; ?>">
 	<a class="skip-link screen-reader-text" href="#content">
             <?php esc_html_e( 'Skip to content', 'agtheme' ); ?>
         </a>
@@ -37,27 +37,23 @@
                     <?php if ( is_front_page() && is_home() ) : ?>
 		<h1 class="site-title">
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                        <span>Andrew</span>
-                        <br>
-                        <span style="margin-left:.5em;">Skrypnyk</span>
+                        <span class="site-title-top">Andrew</span>
+                        <span class="site-title-bottom">Skrypnyk</span>
                     </a>
                 </h1>                    
                     <?php else : ?>
 		<p class="site-title">
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                        <span>Andrew</span>
-                        <br>
-                        <span style="margin-left:.5em;">Skrypnyk</span>
+                        <span class="site-title-top">Andrew</span>
+                        <span class="site-title-bottom">Skrypnyk</span>
                     </a>
                 </p>                    
-                    <?php endif; 
-                    
-                    $description = get_bloginfo( 'description', 'display' );
-                    if ( $description || is_customize_preview() ) : ?>
-                <p class="site-description">
-                    <?php echo $description; /* WPCS: xss ok. */ ?>
-                </p>
                     <?php endif; ?>
+                    
+                <p class="site-description">
+                    <span class="site-description-top">Front-End Web</span>
+                    <span class="site-description-bottom">Designer // Developer</span>
+                </p>
             </div><!-- .site-branding -->
 
             <nav id="site-navigation" class="main-navigation" role="navigation">
