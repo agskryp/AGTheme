@@ -13,15 +13,14 @@
 </div><!-- #content -->
 
 <footer id="colophon" class="site-footer" role="contentinfo">
+ 
     <div class="site-info">
-        <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'agtheme' ) ); ?>">
-            <?php printf( esc_html__( 'Proudly powered by %s', 'agtheme' ), 'WordPress' ); ?>
-        </a>
-	
-        <span class="sep"> | </span>
-	
-            <?php printf( esc_html__( 'Theme by %2$s', 'agtheme' ), 'agtheme', '<a href="http://agskryp.com" rel="designer">Andrew Skrypnyk</a>' ); ?>
+        <p>&copy; 2014 - 2017 Andrew Skrypnyk.  All rights reserved.</p>
+        <p>agskryp.com is powered by <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'agtheme' ) ); ?>"><?php printf( esc_html__( '%s', 'agtheme' ), 'WordPress' ); ?></a>
+	<span class="sep"> | </span>	
+        <?php printf( esc_html__( 'Designed by %2$s', 'agtheme' ), 'agtheme', '<a href="http://agskryp.com" rel="designer">agskryp</a>' ); ?></p>
     </div><!-- .site-info -->
+
 </footer><!-- #colophon -->
 
 </div><!-- #page -->

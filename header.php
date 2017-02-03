@@ -21,7 +21,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <div id="page" class="site <?php if ( is_home() || is_single() || is_archive() ) : echo get_theme_mod( 'layout_setting', 'sidebar-right' ); endif; ?>">
+    <div id="page" class="site <?php if ( 'portfolio' != get_post_type() && is_page() != get_post_type() ) : echo get_theme_mod( 'layout_setting', 'sidebar-right' ); endif; ?>">
 	<a class="skip-link screen-reader-text" href="#content">
             <?php esc_html_e( 'Skip to content', 'agtheme' ); ?>
         </a>
@@ -58,7 +58,8 @@
 
             <nav id="site-navigation" class="main-navigation" role="navigation">
                 <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                    <?php esc_html_e( 'Site Menu', 'agtheme' ); ?>
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                        <?php esc_html_e( 'Menu', 'agtheme' ); ?>
                 </button>
                     <?php wp_nav_menu( array(
                         'theme_location' => 'primary',

@@ -42,8 +42,8 @@ function agtheme_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
         //Default post thumbnail size || featured image size
-        set_post_thumbnail_size( 828, 360, true ); //Edit size to fit your theme, then regenerate
-        //thumbnails
+//        set_post_thumbnail_size( 828, 360, true ); //Edit size to fit your theme, then regenerate
+//        //thumbnails
         
         //If you need a custom image size
         //Note wordpress backend comes with thumbnail, medium, and large options
@@ -168,3 +168,20 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Load Portfolio post types.
+ */
+require get_template_directory() . '/inc/posttypes.php';
+
+
+/**
+ * Sets the number of images to display on the portfolio page
+ */
+function projects_per_page( $query ) {
+    if( ! is_admin() && $query->is_main_query() )
+        if ( $query->is_post_type_archive('portfolio') ) {
+            $query->set( 'posts_per_page', 30 );
+    }
+}
+add_action( 'pre_get_posts', 'projects_per_page' );

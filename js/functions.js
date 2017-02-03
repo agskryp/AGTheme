@@ -20,27 +20,27 @@
     
     // TweenLite Animation on homepage
     TweenMax.from(".site-title-top", 2, {
-    paddingLeft: "1em",
-    opacity: 0,
-    ease: Power1.easeInOut
-});
+        paddingLeft: "1em",
+        opacity: 0,
+        ease: Power1.easeInOut
+    });
 
-TweenMax.from(".site-title-bottom", 2, {
-    paddingRight: "1em",
-    opacity: 0,
-    ease: Power1.easeInOut
-});
+    TweenMax.from(".site-title-bottom", 2, {
+        paddingRight: "1em",
+        opacity: 0,
+        ease: Power1.easeInOut
+    });
 
-TweenMax.staggerFrom(".site-description span", 1, {
-    bottom: "1em",
-    opacity: 0,
-    delay: 1.5
-}, -0.3);
-
+    TweenMax.staggerFrom(".site-description span", 1, {
+        bottom: "1em",
+        opacity: 0,
+        delay: 1.5
+    }, -0.3);
 
     TweenMax.staggerFrom(".homepage-menu-item", 1, {
-    bottom: "1em",
-    opacity: 0,
-    delay: 2
-}, 0.2);
+        bottom: "1em",
+        opacity: 0,
+        delay: 2
+    }, 0.2); 
+
 })( jQuery );

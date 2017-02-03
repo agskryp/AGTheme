@@ -49,11 +49,17 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Footer
 # Custom CSS Classes
 # Home Page
+# Portfolio Pages
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 # Variables
 --------------------------------------------------------------*/
+
+$greater-than:         min-width;
+$desktop:              910px;
+$tablet:               768px;
+$mobile:               480px;
 
 $primary-link-color:   #7b9e8f;             // Greenish
 $secondary-link-color: #9f8b68;             // Orangey
@@ -300,7 +306,7 @@ textarea {
 
 .site-content {
         font-size: 1.125em;
-        line-height: 1.6em;
+        line-height: 1.4em;
 }
 
 h1,
@@ -674,8 +680,7 @@ a:active {
 }
 
 .main-navigation li {
-	border-top: 1px solid #eaeaea;
-	border-top: 1px solid rgba(51, 51, 51, 0.1);
+	border-top: 1px solid rgba(251, 251, 251, 0.4);
 	position: relative;
 }
 
@@ -753,7 +758,7 @@ a:active {
 	content: "\f077";
 }
 
-/* Small Menu */
+/* Mobile Menu Design */
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
@@ -763,14 +768,18 @@ a:active {
     position: fixed;
     z-index: 100;
     bottom: 0;
-    left: 20%;
+    left: 0;
+    width: 100%;
+    height: 2em;
     font-size: 1em;
+    font-weight: 400;
+    text-align: left;
+    padding-left: 1em;
     text-transform: uppercase;
-    background-color: $body-bkgd-color;
-    color: $header-font-color;
-    border: 1px solid #000;
-    border-radius: 10%/40% 40% 0 0;
-    border-bottom: none;
+    border: 0;
+    border-top: 1px solid $primary-bkgd-color;
+    background-color: $primary-text-color;
+    color: $primary-bkgd-color;
     transition: bottom ease-out 400ms;
 }
 
@@ -787,31 +796,19 @@ a:active {
 }
 
 .toggled .menu-toggle.hide {
-    bottom: 1em;
+    bottom: 0;
 }
 
 /* Hovering Menu */
 .main-navigation.toggled {
     position: fixed;
-    bottom: 0;
-    border-bottom: 4em solid #696969;
+    bottom: 2em;
     z-index: 1;
 }
 
 .nav-menu {
+    background-color: $primary-text-color;
     padding: 0;
-    background-color: rgba(69,69,69,1);
-}
-
-@media screen and (max-width: 30em) {
-    .nav-menu {
-        background-color: rgba(0,0,0,0.3);
-        padding: 1em;
-    }
-    
-    .main-navigation.toggled {
-        border-bottom: none;
-    }
 }
 
 .main-navigation.toggled ul {
@@ -828,8 +825,8 @@ a:active {
     display: block;
 }
 
-/* Toggle navigation display between mobile and desktop + desktop design */
-@media screen and (min-width: 37.5em) {
+/* Navigation display on devices greater than mobile */
+@media screen and ($greater-than: $mobile) {
 	.menu-toggle {
 		display: none;
 	}
@@ -844,6 +841,7 @@ a:active {
             margin: 0 auto;
             padding: 0;
             background: none;
+            bottom: 0;
         }
         
         .nav-menu {
@@ -1501,12 +1499,13 @@ a:active {
 
 /* Rules for sidebar left and sidebar right*/
 
-@media screen and (min-width: 50em) {
+@media screen and ($greater-than: $tablet) {
     
     /* Sidebar layout*/
     .sidebar-right .widget-area,
     .sidebar-left .widget-area {
-        width: 35%;
+        max-width: 19em;
+        width: 36%;
         margin: 0;
         overflow: hidden;
         display: block;
@@ -1514,7 +1513,7 @@ a:active {
     
     .sidebar-right .content-area,
     .sidebar-left .content-area {
-        width: 65%;        
+        width: 64%;        
     }
     
     .sidebar-right .site-main,
@@ -1540,7 +1539,6 @@ a:active {
     }
     
     .sidebar-right .widget-area {
-        float: right;
         padding-left: .5em;
     }
     
@@ -1565,17 +1563,16 @@ a:active {
     
     /* Limit and center site content on large screens */
     .site-content {
-        max-width: 50em;
         margin: 1em auto 0;
     }
 }
 
 .site-main {
     font-size: .8em;
-    line-height: 1.6em;
+    line-height: 1.4em;
 }
 
-@media screen and (min-width: 45em) {
+@media screen and ($greater-than: $mobile) {
     .site-main {
         font-size: 1em;
     }
@@ -1594,14 +1591,21 @@ a:active {
     text-align: center;
     background: $primary-bkgd-color;
     line-height: .85em;
-    color: $primary-link-color;
-    padding: .3em;
+    color: $primary-text-color;
+    padding: .3em 1.4rem;
     font-family: 'Muli', sans-serif;
     font-weight: 900;
-    font-size: 3em;
+    font-size: 2em;
     font-variant: small-caps;
-    margin: 0;
-    border-bottom: 2px solid $primary-link-color;
+    margin: 0 0 .5em;
+}
+
+.page-title span {
+    font-size: 60%;
+    font-style: italic;
+    font-weight: 100;
+    font-variant: normal;
+    color: grey;
 }
 
 /*--------------------------------------------------------------
@@ -1634,7 +1638,7 @@ a:active {
 .entry-title {
     margin: 0;
     font-family: 'Muli', sans-serif;
-    font-weight: 300;
+    font-weight: 500;
     font-size: 3.3em;
     line-height: .9em;
     letter-spacing: -2px;
@@ -2126,10 +2130,15 @@ img.aligncenter {
 --------------------------------------------------------------*/
 
 .site-footer {
-    padding: 6em 1em;
+    padding: 2em;
     background: $primary-text-color;
     color: $primary-bkgd-color;
     text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 80%;
 }
 
 /*--------------------------------------------------------------
@@ -2146,6 +2155,14 @@ img.aligncenter {
 .homepage-bkgd {
     background: url(http://agskryp.dev/wp-content/uploads/2016/12/bkgdHome.jpg) no-repeat center center fixed;
     background-size: cover;
+}
+
+.homepage-screen {
+    display: block;
+}
+
+.homepage-branding {
+    padding: 2em 0 2em;
 }
 
 .homepage-container {
@@ -2181,7 +2198,8 @@ img.aligncenter {
     padding: 10px;
     width: 60%;
     margin: 0 auto;
-    font-weight: 100;
+    font-weight: 400;
+    font-size: 140%;
 }
 
 .homepage-menu-button-hover { // Class added and removed via jQuery
@@ -2217,8 +2235,7 @@ img.aligncenter {
     border-radius: 0%; 
 }
 
-/* Homepage style for devices 460px and larger */
-@media screen and (min-width: 460px) {
+@media screen and ($greater-than: $mobile) {
     .homepage-menu-item {
         height: 150px;
         margin: 2em 0.5em;
@@ -2239,6 +2256,7 @@ img.aligncenter {
         display: inline-block;
         vertical-align: middle;
         width: 20%;
+        font-size: 100%;
     }
     
     .homepage-menu-item i {
@@ -2248,11 +2266,22 @@ img.aligncenter {
     }
 }
 
-/* Homepage style for devices 910px and larger */
-@media screen and (min-width: 910px) {
+@media screen and ($greater-than: $desktop) {
     .homepage-container {
         display: flex;
         justify-content: center;
+    }
+    
+    .homepage-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        height: 100vh;
+}
+
+    .homepage-branding {
+        padding-top: 0;
     }
 
     .homepage-menu-item {
@@ -2286,5 +2315,143 @@ img.aligncenter {
     .homepage-menu-item p {
         font-size: 1em;
         padding: 2em 1em;
+    }
+}
+/*--------------------------------------------------------------
+# Portfolio Pages
+--------------------------------------------------------------*/
+.portfolio-archive-project {
+    float: left; 
+    width: 100%;
+}
+
+.portfolio-archive-image {
+    margin: 0 0 0.5em;
+}
+
+.portfolio-archive-image a:hover {
+    opacity: 0.6;
+}
+
+.portfolio-archive h1 {
+    color: $primary-link-color;
+    text-align: center;
+    font-variant: small-caps;
+    margin: 0 0 .5em;
+}
+
+.portfolio-arcive h1::after {
+    content: "";
+    width: 66%;
+    border-top: 1px solid $primary-text-color;
+}
+
+.portfolio-container {
+    position: relative;
+}
+
+.portfolio-feature-image {
+    margin: 0 auto;
+    display: flex;
+}
+
+.portfolio {
+    max-width: 44em !important;
+}
+
+.portfolio-image {
+    padding: 1em 0;
+}
+
+.portfolio-entry-meta {
+    font-family: "Muli", sans-serif;
+    font-size: 75%;
+    font-style: italic;
+    line-height: 0.3;
+    padding: 1em 0;
+}
+
+.portfolio-nav {
+    clear: both;
+    padding: 1em 0;
+}
+
+.portfolio-link {
+    border: 1px solid;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.portfolio-link:last-child {
+    color: $primary-bkgd-color;
+    float: right;
+    background: $primary-link-color;
+}
+
+.portfolio-link:last-child:hover {
+    background: none;
+    color: $primary-link-color;
+}
+
+.portfolio-link:first-child {
+    float: left;
+    color: $primary-link-color;
+    background: $primary-bkgd-color;
+}
+
+.portfolio-link:first-child:hover {
+    color: $primary-bkgd-color;
+    background: $primary-link-color;
+}
+
+.portfolio .edit-link {
+    padding: 0 1em 1em;
+}
+
+@media screen and ($greater-than: $mobile) {
+    .portfolio-archive {
+        margin-right: 1em;
+        margin-top: 1em;
+    }
+    
+    .portfolio-archive-project {
+        width: 50%;
+    }
+        
+    .portfolio-archive-image {
+        margin: 0 0 0.5em 1em;
+    }
+}
+
+@media screen and ($greater-than: $tablet) {    
+    .portfolio-archive {
+        margin-top: 0;
+    }
+    
+    .portfolio {
+        position: relative;
+        margin-top: 15em !important;
+        max-width: 40em !important;
+    }
+
+    .portfolio-feature-image {
+        position: absolute; 
+        top: -16em;
+        left: 0;
+        right: 0;
+    }
+}
+
+@media screen and ($greater-than: $desktop) {
+    .portfolio-archive {
+        margin-right: 0;
+    }
+    
+    .portfolio-archive-project {
+        width: 33%;
+    }
+    
+    .portfolio-feature-image {
+        margin: 0 2em;
     }
 }
