@@ -4,7 +4,7 @@ Theme URI: http://agskryp.com
 Author: Andrew Skrypnyk
 Author URI: http://agskryp.com
 Description: A personal theme for agskryp.com, developed using the underscores theme with guidance from Morton Rand-Hendricksen and his course WordPress: Building Themes from Scratch Using Underscores through lynda.com. <br><br> The course and development began November 15th 2016, and the initial development as well as the course finished December 4th 2016.
-Version: 0.0.1
+Version: 1.1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: agtheme
@@ -65,9 +65,9 @@ $primary-link-color:   #7b9e8f;             // Greenish
 $secondary-link-color: #9f8b68;             // Orangey
 $primary-text-color:   #272727;             // Very Dark Grey
 $primary-bkgd-color:   #f8f4f0;             // Soft White
-$header-font-color:    #cdcdcd;             // Very Light Grey
+$header-font-color:    #c3c3c3;             // Very Light Grey
 $navigate-bkgd-color:  #dcdcdc;             // Light Grey
-$body-bkgd-color:      #e6f6e6;             // Very Light Grey
+$body-bkgd-color:      #c9ded9;             // Light Green
 $about-bkgd-color:     rgba(44,68,55,0.3);
 $blog-bkgd-color:      rgba(56,47,38,0.3);
 $portfolio-bkgd-color: rgba(40,42,41,0.3);
@@ -770,7 +770,7 @@ a:active {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2em;
+    height: 3em;
     font-size: 1em;
     font-weight: 400;
     text-align: left;
@@ -792,7 +792,7 @@ a:active {
 }
 
 .menu-toggle.hide {
-    bottom: -2.5em;
+    bottom: -3.5em;
 }
 
 .toggled .menu-toggle.hide {
@@ -802,7 +802,7 @@ a:active {
 /* Hovering Menu */
 .main-navigation.toggled {
     position: fixed;
-    bottom: 2em;
+    bottom: 3em;
     z-index: 1;
 }
 
@@ -1224,6 +1224,7 @@ a:active {
     font-weight: 900;
     font-variant: small-caps;
     clear: both;
+    text-shadow: 1px 1px 1px $primary-text-color;
     animation: site-description-color-ani 10s ease-in-out infinite;
 }
 
@@ -1497,6 +1498,15 @@ a:active {
 ## Global
 --------------------------------------------------------------*/
 
+.blog-container {
+    max-width: 55em;
+    margin: 0 auto;
+}
+
+.site-content {
+    margin: 0 auto;
+}
+
 /* Rules for sidebar left and sidebar right*/
 
 @media screen and ($greater-than: $tablet) {
@@ -1504,21 +1514,10 @@ a:active {
     /* Sidebar layout*/
     .sidebar-right .widget-area,
     .sidebar-left .widget-area {
-        max-width: 19em;
-        width: 36%;
+        max-width: 20em;
         margin: 0;
         overflow: hidden;
         display: block;
-    }
-    
-    .sidebar-right .content-area,
-    .sidebar-left .content-area {
-        width: 64%;        
-    }
-    
-    .sidebar-right .site-main,
-    .sidebar-left .site-main {
-        width: 100%;
     }
     
     .sidebar-right .widget,
@@ -1561,10 +1560,11 @@ a:active {
         padding-right: 1em;
     }
     
-    /* Limit and center site content on large screens */
-    .site-content {
-        margin: 1em auto 0;
-    }
+}
+
+.sidebar-right .site-main,
+.sidebar-left .site-main {
+    max-width: 35em;
 }
 
 .site-main {
@@ -1583,7 +1583,20 @@ a:active {
     
     .sidebar-right .site-main,
     .sidebar-left .site-main {
-        max-width: 40em;
+        max-width: 30em;
+        margin: 0 auto;
+    }
+}
+
+@media screen and ($greater-than: $desktop) {
+    .sidebar-right .site-main,
+    .sidebar-left .site-main {
+        max-width: 35em;
+    }
+    
+    /* Limit and center site content on large screens */
+    .site-content {
+        margin: 1em auto 0;
     }
 }
 
@@ -1733,6 +1746,23 @@ a:active {
 #page .paging-navigation {
     margin: 0 auto 1em;
     max-width: 53em;
+}
+
+.non-blog {
+    margin-bottom: -1em;
+}
+
+/* Specifically for Contact Form input field */
+.non-blog input[type="text"],
+.non-blog input[type="email"] {
+    width: 100%;
+    max-width: 400px;
+}
+
+@media screen and ($greater-than: $desktop) {
+    .non-blog {
+        margin-bottom: 0;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -2162,7 +2192,7 @@ img.aligncenter {
 }
 
 .homepage-branding {
-    padding: 2em 0 2em;
+    padding: 1em 0 0;
 }
 
 .homepage-container {
@@ -2180,9 +2210,14 @@ img.aligncenter {
     position: relative; // For TweenMax animation
 }
 
+.homepage-menu-item i {
+    text-shadow: 2px 2px 2px $primary-text-color;
+}
+
 .homepage-menu-item p {
     padding: 0 3em;
     color: $header-font-color;
+    text-shadow: 2px 2px 2px $primary-text-color;
 }
 
 .homepage-menu-item p,
@@ -2200,6 +2235,7 @@ img.aligncenter {
     margin: 0 auto;
     font-weight: 400;
     font-size: 140%;
+    box-shadow: 2px 2px 2px $primary-text-color;
 }
 
 .homepage-menu-button-hover { // Class added and removed via jQuery
@@ -2282,6 +2318,7 @@ img.aligncenter {
 
     .homepage-branding {
         padding-top: 0;
+        padding-bottom: 2em;
     }
 
     .homepage-menu-item {
@@ -2320,6 +2357,10 @@ img.aligncenter {
 /*--------------------------------------------------------------
 # Portfolio Pages
 --------------------------------------------------------------*/
+.portfolio-archive {
+    background: $primary-bkgd-color;
+}
+
 .portfolio-archive-project {
     float: left; 
     width: 100%;
@@ -2336,14 +2377,24 @@ img.aligncenter {
 .portfolio-archive h1 {
     color: $primary-link-color;
     text-align: center;
-    font-variant: small-caps;
-    margin: 0 0 .5em;
+    margin: 0;
+    padding-top: .5em;
+    font-family: 'Muli', sans-serif;
+    font-weight: 500;
+    font-size: 3.3em;
+    line-height: .9em;
+    letter-spacing: -2px;
+    word-wrap: break-word;
 }
 
-.portfolio-arcive h1::after {
+.portfolio-archive h1::after {
+    display: block;
     content: "";
-    width: 66%;
-    border-top: 1px solid $primary-text-color;
+    width: 67%;
+    max-width: 768px;
+    margin: .25em auto .5em;
+    border-bottom: 1px solid $primary-text-color;
+    opacity: .7;
 }
 
 .portfolio-container {
@@ -2351,8 +2402,12 @@ img.aligncenter {
 }
 
 .portfolio-feature-image {
-    margin: 0 auto;
+    margin: 0;
     display: flex;
+}
+
+.portfolio-feature-image img {
+    margin: 0 auto;
 }
 
 .portfolio {
@@ -2386,6 +2441,9 @@ img.aligncenter {
     color: $primary-bkgd-color;
     float: right;
     background: $primary-link-color;
+    margin-top: 1em;
+    width: 100%;
+    text-align: center;
 }
 
 .portfolio-link:last-child:hover {
@@ -2397,6 +2455,8 @@ img.aligncenter {
     float: left;
     color: $primary-link-color;
     background: $primary-bkgd-color;
+    width: 100%;
+    text-align: center;
 }
 
 .portfolio-link:first-child:hover {
@@ -2410,8 +2470,8 @@ img.aligncenter {
 
 @media screen and ($greater-than: $mobile) {
     .portfolio-archive {
-        margin-right: 1em;
-        margin-top: 1em;
+        margin-top: 0;
+        padding-right: 1em;
     }
     
     .portfolio-archive-project {
@@ -2421,11 +2481,23 @@ img.aligncenter {
     .portfolio-archive-image {
         margin: 0 0 0.5em 1em;
     }
+    
+    .portfolio-link:first-child {
+        width: auto;
+        text-align: left;
+    }
+    
+    .portfolio-link:last-child {
+        margin-top: 0;
+        width: auto;
+        text-align: right;
+}
 }
 
 @media screen and ($greater-than: $tablet) {    
     .portfolio-archive {
         margin-top: 0;
+        margin-bottom: 0;
     }
     
     .portfolio {
@@ -2444,14 +2516,11 @@ img.aligncenter {
 
 @media screen and ($greater-than: $desktop) {
     .portfolio-archive {
-        margin-right: 0;
+        padding-right: .5em;
+        margin-bottom: 1em;
     }
     
     .portfolio-archive-project {
         width: 33%;
-    }
-    
-    .portfolio-feature-image {
-        margin: 0 2em;
     }
 }

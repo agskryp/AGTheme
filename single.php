@@ -9,6 +9,7 @@
 
 get_header(); ?>
 
+<div class="blog-container">
     <div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
 

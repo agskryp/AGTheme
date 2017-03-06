@@ -54,26 +54,5 @@
         endif; ?>
     
     </div><!-- .page-content -->
-    
-    <?php if ( is_404() || is_search() ) { ?>
-        <h1 class="page-title secondary-title">
-            <?php esc_html_e( 'Most recent posts', 'agtheme' ); ?>
-        </h1>
-        
-        <?php
-        //Get the 6 latest posts
-        $args = array( 'posts_per_page' => 6 );
-        $latest_posts_query = new WP_Query( $args );
-        //The Loop
-        if ( $latest_posts_query->have_posts() ) {
-            while ( $latest_posts_query->have_posts() ) {
-                $latest_posts_query->the_post();
-                //Get the standard index page content
-                get_template_part( 'template-parts/content', get_post_format() );
-            }
-        }    
-        //Restore original post data
-        wp_reset_postdata();
-    } ?>
 
 </section><!-- .no-results -->
