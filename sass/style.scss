@@ -4,7 +4,7 @@ Theme URI: http://agskryp.com
 Author: Andrew Skrypnyk
 Author URI: http://agskryp.com
 Description: A personal theme for agskryp.com, developed using the underscores theme with guidance from Morton Rand-Hendricksen and his course WordPress: Building Themes from Scratch Using Underscores through lynda.com. <br><br> The course and development began November 15th 2016, and the initial development as well as the course finished December 4th 2016.
-Version: 1.1.2
+Version: 1.1.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: agtheme
@@ -1198,6 +1198,7 @@ a:active {
 }
 
 .site-title {
+    box-sizing: border-box;
     max-width: 430px;
     padding: .1em .5em .2em;
     font-family: 'Lato', sans-serif;
@@ -1292,13 +1293,13 @@ a:active {
 
 @media screen and (min-width: 720px) and (max-width: 910px) {
     .site-title {
-            max-width: 537px;
-            font-size: 6.4em
+        max-width: 537px;
+        font-size: 6.4em
     }
     
     .site-description {
         font-size: 1.25em;
-           max-width: 537px;
+        max-width: 537px;
     }
     
     .site-description-top {
@@ -1518,64 +1519,33 @@ a:active {
     margin: 0 auto;
 }
 
-/* Rules for sidebar left and sidebar right*/
+/* Rules for and sidebar right*/
 
 @media screen and ($greater-than: $tablet) {
     
     /* Sidebar layout*/
-    .sidebar-right .widget-area,
-    .sidebar-left .widget-area {
-        max-width: 20em;
+    .sidebar-right .widget-area {
         margin: 0;
         overflow: hidden;
         display: block;
+        float: left;
+        width: 38%;
     }
     
-    .sidebar-right .widget,
-    .sidebar-left .widget {
+    .sidebar-right .widget {
         width: 100%;
         margin: 0 0 1em;
-    }    
-    
-    /* Sidebar right layout*/
-    .sidebar-right .content-area,
-    .sidebar-right .widget {
-        float: left;
-    }
+    } 
     
     .sidebar-right .site-main {
-        float: right;
-        padding-right: .5em;
+        padding: 0 .5em 0 1em;
+        float: left;
+        width: 62%;
     }
     
     .sidebar-right .widget-area {
-        padding-left: .5em;
+        padding: 0 1em 0 .5em;
     }
-    
-    
-    /* Sidebar left layout */
-    .sidebar-left .widget,
-    .sidebar-left .content-area {
-        float: right;
-    }
-    
-    .sidebar-left .widget-area {
-        float: left;
-        padding-right: .5em;
-        padding-left: 1em;
-    }
-    
-    .sidebar-left .site-main {
-        float: left;
-        padding-left: .5em;
-        padding-right: 1em;
-    }
-    
-}
-
-.sidebar-right .site-main,
-.sidebar-left .site-main {
-    max-width: 35em;
 }
 
 .site-main {
@@ -1592,19 +1562,12 @@ a:active {
         margin-left: 0;
     }
     
-    .sidebar-right .site-main,
-    .sidebar-left .site-main {
-        max-width: 30em;
+    .sidebar-right .site-main {
         margin: 0 auto;
     }
 }
 
-@media screen and ($greater-than: $laptop) {
-    .sidebar-right .site-main,
-    .sidebar-left .site-main {
-        max-width: 40em;
-    }
-    
+@media screen and ($greater-than: $laptop) {    
     /* Limit and center site content on large screens */
     .site-content {
         margin: 1em auto 0;
@@ -1800,7 +1763,7 @@ a:active {
 
 @media screen and ($greater-than: $laptop) {
     .non-blog {
-        margin-bottom: 0;
+        margin: 0 1em;
     }
 }
 
