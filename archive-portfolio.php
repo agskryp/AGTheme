@@ -14,8 +14,6 @@ get_header(); ?>
 <div id="primary" class="content-area">
     <main id="main" class="site-main portfolio-archive" role="main">
         
-        <h1>Recent Projects</h1>
-
             <?php 
             if ( have_posts() ) :
 

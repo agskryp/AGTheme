@@ -9,18 +9,17 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <header class="entry-header">
+    <?php if ( is_home() || is_archive() ) : ?>
+        <header class="entry-header">
             
-            <?php if ( is_single() ) :
-                the_title( '<h1 class="entry-title">', '</h1>' );
-            else :
+            <?php if ( !is_single() ) :
                 the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
             endif;
 
             if ( 'post' === get_post_type() ) : ?>
-	<div class="entry-meta">
-            <?php agtheme_posted_on(); ?>
-	</div><!-- .entry-meta -->
+                <div class="entry-meta">
+                    <?php agtheme_posted_on(); ?>
+                </div><!-- .entry-meta -->
             <?php endif;
         
             if ( has_post_thumbnail() && is_single() ) { ?>
@@ -36,6 +35,7 @@
             <?php } ?>
         
     </header><!-- .entry-header -->
+        <?php endif; ?>
 
     <div class="entry-content">
         <?php if ( is_single() ) :

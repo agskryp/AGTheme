@@ -122,7 +122,7 @@ function agtheme_scripts() {
 	wp_enqueue_style( 'agtheme-style', get_stylesheet_uri() );
 
         //Add Google Fonts:
-        wp_enqueue_style( 'agtheme-google-fonts', 'https://fonts.googleapis.com/css?family=Lato:100,900|Muli:300,300i,400,400i' );
+        wp_enqueue_style( 'agtheme-google-fonts', 'https://fonts.googleapis.com/css?family=Lato:100,900|Muli:300,300i,400,400i|Yrsa:300,400,500,600,700' );
         
         //Add Font Awesome:
         wp_enqueue_style( 'agtheme-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );

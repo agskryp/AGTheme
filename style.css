@@ -4,7 +4,7 @@ Theme URI: http://agskryp.com
 Author: Andrew Skrypnyk
 Author URI: http://agskryp.com
 Description: A personal theme for agskryp.com, developed using the underscores theme with guidance from Morton Rand-Hendricksen and his course WordPress: Building Themes from Scratch Using Underscores through lynda.com. <br><br> The course and development began November 15th 2016, and the initial development as well as the course finished December 4th 2016.
-Version: 1.1.1
+Version: 1.1.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: agtheme
@@ -961,6 +961,14 @@ a:active {
   padding: 1rem 1.6rem;
   background: #dcdcdc;
   transition: none;
+  border: 2px solid #7b9e8f;
+}
+
+.paging-navigation .current,
+.post-navigation a:hover,
+.comment-navigation a:hover,
+.paging-navigation a:hover {
+  border: 2px solid #9f8b68;
 }
 
 .comment-navigation a {
@@ -969,7 +977,6 @@ a:active {
 
 .paging-navigation {
   text-align: center;
-  background: #dcdcdc;
 }
 
 .paging-navigation .current {
@@ -1350,11 +1357,12 @@ a:active {
   }
 }
 .widget-title {
-  margin-top: .5em;
-  margin-bottom: 1.5em;
-  font-size: 1em;
-  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-size: 1.8em;
+  font-variant: small-caps;
   text-align: center;
+  letter-spacing: .1em;
 }
 
 .widget ul,
@@ -1376,7 +1384,8 @@ a:active {
 .widget_categories > ul > li,
 .widget_recent_comments li,
 .widget_recent_entries li {
-  padding-bottom: .5em;
+  padding-bottom: .7em;
+  line-height: 1.3em;
 }
 
 /* Search widget */
@@ -1484,7 +1493,7 @@ a:active {
 ## Global
 --------------------------------------------------------------*/
 .blog-container {
-  max-width: 55em;
+  max-width: 60em;
   margin: 0 auto;
 }
 
@@ -1570,7 +1579,7 @@ a:active {
 @media screen and (min-width: 910px) {
   .sidebar-right .site-main,
   .sidebar-left .site-main {
-    max-width: 35em;
+    max-width: 40em;
   }
 
   /* Limit and center site content on large screens */
@@ -1580,17 +1589,22 @@ a:active {
 }
 .page-title {
   text-align: center;
-  background: #f8f4f0;
-  line-height: .85em;
-  color: #272727;
-  padding: .3em 1.4rem;
+  background: rgba(0, 0, 0, 0.6);
+  line-height: 1em;
+  color: #c9ded9;
+  padding: 1rem;
   font-family: 'Muli', sans-serif;
-  font-weight: 900;
-  font-size: 2em;
-  font-variant: small-caps;
-  margin: 0 0 .5em;
+  font-weight: 500;
+  font-size: 3em;
+  margin: 0;
+  border-top: none;
 }
 
+@media screen and (min-width: 910px) {
+  .page-title {
+    border-top: 1rem solid #c9ded9;
+  }
+}
 .page-title span {
   font-size: 60%;
   font-style: italic;
@@ -1627,15 +1641,14 @@ a:active {
 }
 
 .entry-title {
-  margin: 0;
+  margin: 0 0 .5rem;
   font-family: 'Muli', sans-serif;
   font-weight: 500;
-  font-size: 3.3em;
-  line-height: .9em;
+  font-size: 2.7em;
+  line-height: 1em;
   letter-spacing: -2px;
   color: #7b9e8f;
   padding: 0 4rem 0 1.4rem;
-  margin-bottom: .4rem;
   word-wrap: break-word;
 }
 
@@ -1652,8 +1665,25 @@ a:active {
   margin: 0 !important;
 }
 
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  margin-top: .5em;
+}
+
 .entry-content p {
   margin-bottom: 0;
+  font-family: Yrsa;
+  font-size: 1.4em;
+  font-weight: 100;
+  line-height: 1.2em;
+}
+
+.entry-content p:first-child::first-letter {
+  font-size: 300%;
 }
 
 .byline,
@@ -1689,9 +1719,15 @@ a:active {
 }
 
 .cat-links,
-.tags-links {
+.tags-links,
+.post-links {
   font-size: .8em;
   font-style: italic;
+}
+
+.post-links {
+  display: block;
+  margin-bottom: 1em;
 }
 
 .cat-links {
@@ -2333,13 +2369,37 @@ img.aligncenter {
     padding: 2em 1em;
   }
 }
+@media screen and (min-width: 1440px) {
+  .homepage-screen {
+    font-size: 1.3rem;
+  }
+
+  .site-title {
+    max-width: 591px;
+  }
+
+  .site-description {
+    font-size: 1.1em;
+    max-width: 551px;
+    padding-left: 2.5em;
+  }
+}
+@media screen and (min-width: 1950px) {
+  .homepage-screen {
+    font-size: 1.5rem;
+  }
+
+  .site-title {
+    max-width: 682px;
+  }
+
+  .site-description {
+    max-width: 637px;
+  }
+}
 /*--------------------------------------------------------------
 # Portfolio Pages
 --------------------------------------------------------------*/
-.portfolio-archive {
-  background: #f8f4f0;
-}
-
 .portfolio-archive-project {
   float: left;
   width: 100%;
@@ -2347,33 +2407,12 @@ img.aligncenter {
 
 .portfolio-archive-image {
   margin: 0 0 0.5em;
+  padding: .5em;
+  background: #f8f4f0;
 }
 
 .portfolio-archive-image a:hover {
   opacity: 0.6;
-}
-
-.portfolio-archive h1 {
-  color: #7b9e8f;
-  text-align: center;
-  margin: 0;
-  padding-top: .5em;
-  font-family: 'Muli', sans-serif;
-  font-weight: 500;
-  font-size: 3.3em;
-  line-height: .9em;
-  letter-spacing: -2px;
-  word-wrap: break-word;
-}
-
-.portfolio-archive h1::after {
-  display: block;
-  content: "";
-  width: 67%;
-  max-width: 768px;
-  margin: .25em auto .5em;
-  border-bottom: 1px solid #272727;
-  opacity: .7;
 }
 
 .portfolio-container {
@@ -2450,7 +2489,7 @@ img.aligncenter {
 
 @media screen and (min-width: 480px) {
   .portfolio-archive {
-    margin-top: 0;
+    margin-top: .5em;
     padding-right: 1em;
   }
 
@@ -2490,6 +2529,10 @@ img.aligncenter {
     top: -16em;
     left: 0;
     right: 0;
+  }
+
+  .portfolio-feature-image img {
+    margin: 1em auto 0;
   }
 }
 @media screen and (min-width: 910px) {

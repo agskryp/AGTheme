@@ -62,8 +62,14 @@ function agtheme_entry_footer() {
 
     // Hide category and tag text for pages.
     if ( 'post' === get_post_type() ) { ?>
+
+        
         <div class="cat-tag-links">
-            <?php /* translators: used between list items, there is a space after the comma */
+            <?php if ( !is_home() && !is_archive() ) : ?>
+                <span class="post-links"><?php agtheme_posted_on(); ?></span>
+            <?php endif; 
+            
+            /* translators: used between list items, there is a space after the comma */
             $categories_list = get_the_category_list( esc_html__( ', ', 'agtheme' ) );
                 if ( $categories_list && agtheme_categorized_blog() ) {
                     printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'agtheme' ) . '</span>', $categories_list ); // WPCS: XSS OK.

@@ -68,5 +68,31 @@
                     ) ); ?>
             </nav><!-- #site-navigation -->
             
+            <div>
+                <?php if ( have_posts() && !is_front_page() ) :
+                    if ( is_home() ) : ?>
+                        <h1 class="page-title">The Blog</h1>
+                    <?php endif; 
+                    
+                    if ( is_single() ) :
+                        the_title( '<h1 class="page-title">', '</h1>' );
+                    endif;
+                    
+                    if ( is_post_type_archive( 'portfolio' ) ) : ?>
+                        <h1 class="page-title">The Portfolio</h1>
+                    <?php endif;
+                    
+                    if ( is_archive() && !is_post_type_archive( 'portfolio' ) ) :
+                        the_archive_title( '<h1 class="page-title">', '</h1>' );
+                        the_archive_description( '<div class="archive-description">', '</div>' );
+                    endif;
+                    
+                    if ( is_page() ) :
+                        the_title( '<h1 class="page-title">', '</h1>' );
+                    endif;
+                endif; ?>
+                
+            </div><!-- #page-title -->
+            
 	</header><!-- #masthead -->
     <div id="content" class="site-content">
